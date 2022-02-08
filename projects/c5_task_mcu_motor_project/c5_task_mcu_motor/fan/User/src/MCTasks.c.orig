@@ -1,0 +1,1618 @@
+/******************************************************************************
+* File Name         :  MCTasks.c
+* Author            :  陈雅枫
+* Version           :  1.0
+* Date              :  19/01/14
+* Description       :  电控驱动的任务调用
+********************************************************************************
+* History:
+* <author>        <time>        <version >        <desc>
+* 陈雅枫             19/01/14      1.0               创建
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*******************************************************************************/
+
+
+/* Includes ------------------------------------------------------------------*/
+
+#include "MCTasks.h"
+#include "PIRegulator.h"
+#include "Type.h"
+#include "Math.h"
+#include "HallSensor.h"
+#include "CircleLimitation.h"
+#include "PWMnCurrentFdbk.h"
+#include "SpeednTorqCtrl.h"
+#include "NTCSensor.h"
+#include "UartComm.h"
+#include "UITasks.h"
+#include "CanBus.h"
+#include "stmflash.h"
+#include "MTPAControl.h"
+
+
+extern _MOTOR_INFO motor_info;
+
+#define SIZE 6
+#define FLASH_SAVE_ADDR  0X08020004  	//设置FLASH 保存地址(128K)(必须为偶数，且所在扇区,要大于本代码所占用到的扇区.否则,写操作的时候,可能会导致擦除整个扇区,从而引起部分程序丢失.引起死机. 0X0800C004(49K)
+//设置FLASH 保存地址(必须为偶数，且其值要大于本代码所占用FLASH的大小+0X08000000)
+extern  u16 phasecurrent_offset_data[SIZE];
+
+
+/* Private variables----------------------------------------------------------*/
+pPI_t oPIDSpeed[NBR_OF_MOTORS];
+pPI_t oPIDSpeedLike[NBR_OF_MOTORS];
+pPI_t oPIDIq[NBR_OF_MOTORS];
+pPI_t oPIDId[NBR_OF_MOTORS];
+pPI_t oPIDIs[NBR_OF_MOTORS];
+pPI_t oPIDVs[NBR_OF_MOTORS];
+pPI_t oPIAcc[NBR_OF_MOTORS];
+pSTC_t oSTC[NBR_OF_MOTORS];
+pCLM_t oCLM[NBR_OF_MOTORS];
+pPWMC_t oPwmc[NBR_OF_MOTORS];
+pHALL_t oHall[NBR_OF_MOTORS];
+pMTPA_t oMTPA[NBR_OF_MOTORS];
+
+
+FOCVars_t FOCVars[NBR_OF_MOTORS];
+
+
+Relay_t Relay;
+
+
+static volatile uint16_t hMFTaskCounterM1 = 0;
+static volatile uint16_t hBootCapDelayCounterM1 = 0;
+static volatile uint16_t hStopPermanencyCounterM1 = 0;
+
+static volatile uint16_t hMFTaskCounterM2 = 0;
+static volatile uint16_t hBootCapDelayCounterM2 = 0;
+static volatile uint16_t hStopPermanencyCounterM2 = 0;
+
+#ifdef SPEED_MODE//---------
+int16_t hHallSpeed[NBR_OF_MOTORS];
+int16_t hHallSpeedDelta[NBR_OF_MOTORS];
+#endif//---------
+
+static uint8_t bMCBootCompleted = 0;
+
+static uint8_t bMC1msCompleted = 0;
+static uint8_t bMC16msCompleted = 0;
+uint8_t bMCPwmPeriodCompleted =0;
+
+
+#ifdef UART_DEBUG
+uint8_t bFlagTemp1 = 0;
+
+int16_t hHallAngle1;
+
+#endif
+
+
+int16_t hTorqRef;
+
+
+/* Private functions ---------------------------------------------------------*/
+static void TSK_HighFrequencyTaskM1(void);
+static void FOC_Clear(uint8_t bMotor);
+
+static void FOC_CalcCurrRef(uint8_t bMotor);
+
+static void TSK_HighFrequencyTaskM2(void);
+
+static uint8_t FOC_index=0;
+
+void FOC_Init(uint8_t bMotor);
+void MC_MotorStart(uint8_t bMotor);
+void MC_FaultDetection(void);
+
+int32_t M1_static_speed_cal(void);
+int32_t M2_static_speed_cal(void);
+
+#ifdef LINEAR_HALL//190822
+
+#define S16_30_PHASE_SHIFT  (s16)(65536/12)
+#define S16_60_PHASE_SHIFT  (s16)(65536/6)
+#define S16_120_PHASE_SHIFT (s16)(65536/3)
+
+#define S16_90_PHASE_SHIFT      (s16)(S16_30_PHASE_SHIFT * 3)
+#define S16_150_PHASE_SHIFT     (s16)(S16_30_PHASE_SHIFT * 5)
+#define S16_180_PHASE_SHIFT     (s16)(S16_30_PHASE_SHIFT * 6)
+#define S16_210_PHASE_SHIFT     (s16)(S16_30_PHASE_SHIFT * 7)
+#define S16_240_PHASE_SHIFT     (s16)(S16_30_PHASE_SHIFT * 8)
+#define S16_270_PHASE_SHIFT     (s16)(S16_30_PHASE_SHIFT * 9)
+#define S16_300_PHASE_SHIFT     (s16)(S16_30_PHASE_SHIFT * 10)
+#define S16_330_PHASE_SHIFT     (s16)(S16_30_PHASE_SHIFT * 11)
+
+//int16_t hLinearHallAngleShift[2] = {3000,3000};
+//int16_t hLinearHallAngleShift[2] = {-23500,-23500};//偏移xx°
+//int16_t hLinearHallAngleShift[2] = {9267,-23500};//偏移xx°
+//int16_t hLinearHallAngleShift[2] = {4000,-25800};//偏移xx°
+int16_t hLinearHallAngleShift[2] = {-23300,1500};
+//int16_t hLinearHallAngleShift[2] = {-28800,2050};
+
+extern int32_t hAngleFilterSum[2];
+extern int16_t hAngleReceived[2];
+extern uint8_t ucHallVal[2];//接收到的霍尔故障信息
+extern int16_t hAngleSpdReceived[2];//接收到的角速度
+
+extern void SPI_Config(void);//190822
+extern int16_t LinearHall_GetElAngle(uint8_t bMotor);
+#endif
+
+Volt_Components Valphabeta, Vqd;
+
+//#define RUN_BLDC//移植的方波驱动方式//190716
+
+#ifdef RUN_BLDC//190716
+extern void ChangePhase(uint8_t Hall_state,int16_t L_PWM,TIM_TypeDef* TIMx);
+#endif
+
+/*******************************************************************************
+* Function Name  : MCboot
+* Description    : 电控上电启动函数，调用各模块初始化
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+void MCboot(void)
+{
+
+    bMCBootCompleted = 0;
+
+    UARTC_Init();
+
+
+    PWMC_Init();
+
+    CLM_Init();
+
+    PI_Init();
+
+    HALL_Init();
+
+	#if (MTPA_ENABLING == ENABLE)
+	MTPA_Init();
+	#endif
+
+#ifdef LINEAR_HALL//190822
+    SPI_Config();
+#endif
+//    GPIO_SetBits(GPIOC,GPIO_Pin_14);//test//从同步TIMER到SPI初始化结束约18.7us
+
+    STC_Init();
+
+//	UARTC_Init();
+
+    TB_Init();
+
+    STMFLASH_Read(FLASH_SAVE_ADDR,(u16*)phasecurrent_offset_data,SIZE); //上电自检时读取上一次保存的电流偏置值	20191009 jimianhao
+    if(phasecurrent_offset_data[0]==0 || phasecurrent_offset_data[1]==0 || phasecurrent_offset_data[2]==0 ||
+            phasecurrent_offset_data[3]==0 || phasecurrent_offset_data[4]==0 || phasecurrent_offset_data[5]==0
+      ) //第一次全新使用时判断 20191012 jimianhao
+    {
+        phasecurrent_offset_data[0]=phasecurrent_offset_data[1]=phasecurrent_offset_data[2]=32768;
+        phasecurrent_offset_data[3]=phasecurrent_offset_data[4]=phasecurrent_offset_data[5]=32768;
+    }
+
+    //MC_FaultDetection();//190716
+
+
+#ifdef UI_DEBUG
+    UI_InitChannelPool();
+#endif
+
+    Relay.bCommand =1;
+
+    bMCBootCompleted = 1;
+}
+
+
+/*******************************************************************************
+* Function Name  : MC_FaultDetection
+* Description    : 故障检测
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+void MC_FaultDetection(void)
+{
+    PWMC_CheckMosfets(oPwmc[M1]);
+    PWMC_CurrentCalibration(oPwmc[M1]);
+    PWMC_CheckMosfets(oPwmc[M2]);
+    PWMC_CurrentCalibration(oPwmc[M2]);
+}
+
+
+
+
+/*******************************************************************************
+* Function Name  : MC_Scheduler
+* Description    : 左右电机高频任务调用
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+void MC_Scheduler(void)
+{
+    static uint8_t bSchedulerPoint=0;
+    if (bMCBootCompleted == 1)
+    {
+        if((bSchedulerPoint&0x01)==0)
+            TSK_HighFrequencyTaskM1();
+        else
+            TSK_HighFrequencyTaskM2();
+        bSchedulerPoint++;
+
+    }
+}
+
+
+/*******************************************************************************
+* Function Name  : MC_Relay
+* Description    : 继电器控制函数
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+uint8_t motor_ready_flag=0;
+uint8_t MC_FaultDetection_flag=0;
+
+void MC_Relay(void)
+{
+    int32_t VoltTemp;
+    switch(Relay.bCommand)
+    {
+    case 0 :
+        break;
+    case 1 :
+        Relay.hCounter = 187;
+        Relay.bCommand =2;
+        break;
+    case 2 :
+        Relay.hCounter --;
+        if(Relay.hCounter > 125)
+        {
+            if(hVs > 40000)//Vad=3.3V*40000/2^16=2.01416015625V, *(330+39)/39 = 19.06V
+            {
+                Relay.bCommand =3;
+                GPIO_SetBits(PRECHARGE_GPIO_Port,PRECHARGE_GPIO_Pin);
+            }
+        }
+        else
+        {
+            Relay.hCounter = 0;
+            Relay.bCommand = 0;
+            Relay.bFail = 1;
+            Relay.bStatus = 1;
+            Relay.bFail_lv=1; //主电路欠压,继电器不吸合故障  jimianhao  20191030
+        }
+        break;
+
+    case 3:
+        Relay.hCounter --;
+
+        VoltTemp = (int32_t)hVs;
+        VoltTemp -= (int32_t)hVrelay;
+//		        if((VoltTemp < 2200)&&(hVs > 40000)&&(Relay.hCounter < 125))
+        if((VoltTemp < 3000)&&(hVs > 40000))
+        {
+            GPIO_SetBits(RELAY_GPIO_Port,RELAY_GPIO_Pin);
+            Relay.hCounter = 63;
+            Relay.bCommand = 4;
+        }
+        else if(Relay.hCounter == 0)
+        {
+            Relay.bFail = 1;
+            GPIO_ResetBits(PRECHARGE_GPIO_Port,PRECHARGE_GPIO_Pin);
+            Relay.hCounter = 0;
+            Relay.bCommand = 0;
+            Relay.bStatus = 1;
+        }
+        break;
+    case 4:
+        Relay.hCounter --;
+
+        VoltTemp = (int32_t)hVs;
+        VoltTemp -= (int32_t)hVrelay;
+        if(VoltTemp < 1000)
+        {
+            Relay.bCommand = 0;
+            GPIO_ResetBits(PRECHARGE_GPIO_Port,PRECHARGE_GPIO_Pin);
+            Relay.bStatus = 1;
+            motor_ready_flag=1;//增加下控上电继电器吸合准备好标志位给上控 20190923 jimianhao
+            MC_FaultDetection_flag=1;//继电器吸合准备好自检开始标志位  20191008 jimianhao
+        }
+        else if(Relay.hCounter == 0)
+        {
+            Relay.bFail = 1;
+            GPIO_ResetBits(RELAY_GPIO_Port,RELAY_GPIO_Pin);
+            GPIO_ResetBits(PRECHARGE_GPIO_Port,PRECHARGE_GPIO_Pin);
+            Relay.bCommand = 0;
+            Relay.bStatus = 1;
+        }
+        break;
+
+    }
+}
+
+
+/*******************************************************************************
+* Function Name  : TSK_HighFrequencyTaskM1
+* Description    : 左电机高频任务函数
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+extern int8_t  can_err_flag;
+int32_t  M1_control_spdref;
+
+extern u16 Electronic_lock_flag;
+uint8_t lock_off_flag;
+uint8_t M1_unlock_direction;
+int32_t M1_unlock_spd_ref;
+uint8_t M1_unlock_direction_flag;
+uint8_t M1_lock_off_flag;
+uint8_t M1_stop_complete_flag;
+uint8_t M1_unlock_start_flag;
+
+void TSK_HighFrequencyTaskM1(void)
+{
+    int32_t hRefTemp;
+
+#ifdef SPEED_MODE
+//    if((control_data.Left_motor_spd/6) > 40)
+//        oSTC[M1]->Vars.hSpeedRef01HzExt =  40;
+//    else
+//        oSTC[M1]->Vars.hSpeedRef01HzExt =  0;
+    oSTC[M1]->Vars.hSpeedRef01HzExt =  control_data.Left_motor_spd;
+#else
+//	oSTC[M1]->Vars.hTorqueRef =  control_data.Left_motor_spd*10;
+//    hRefTemp = (int32_t)control_data.Right_motor_spd*1880;
+    if(can_err_flag==1)  // 增加CAN通信错误数据处理,确保电机平稳快速停下 20190929
+    {
+        if(M1_control_spdref>=0)
+        {
+            M1_control_spdref -= can_err_step_cnt;
+            if(M1_control_spdref<=0) M1_control_spdref=0;
+        }
+        else
+        {
+            M1_control_spdref +=can_err_step_cnt;
+            if(M1_control_spdref>=0) M1_control_spdref=0;
+        }
+        hRefTemp = M1_control_spdref;
+    }
+    else  hRefTemp = M1_control_spdref =(int32_t)control_data.Right_motor_spd;
+//////////////////////////斜坡处理//////////////////////////////////////////////////////
+
+//		{
+//      if(control_data.Right_motor_spd==0 && control_data.Left_motor_spd==0)
+//		  {
+//        M1_control_spdref=0;
+//		    hRefTemp = M1_static_speed_cal();
+//		  }
+//		  else
+//			{
+//				hRefTemp = M1_control_spdref =(int32_t)control_data.Right_motor_spd;
+//				M1_unlock_direction_flag=0;
+//        M1_stop_complete_flag=0;
+//        M1_unlock_spd_ref=M1_control_spdref;
+//			}
+//		}
+
+//////////////////////开锁状态下用手推车后再按上锁键必须先减速后才能上锁//////////////
+
+    if(Electronic_lock_flag == 0 && lock_off_flag == 1)	// 	20191012 jimianhao
+    {
+        hRefTemp = M1_static_speed_cal();
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+//	if(ABS(hRefTemp)<600)
+//		hRefTemp=0;
+    //hRefTemp = hRefTemp>>7;
+    if(hRefTemp > 32767)
+        hRefTemp = 32767;
+    else if(hRefTemp < -32767)
+        hRefTemp = -32767;
+    oSTC[M1]->Vars.hTorqueRef = (int16_t)hRefTemp;
+//	oSTC[M1]->Vars.hTorqueRef =  0;
+#endif
+
+    if(((oHall[M1]->Vars).bBlockageFault != 0)||
+//            ((oHall[M2]->Vars).bBlockageFault != 0)||
+//            ((oHall[M2]->Vars).bHallFault != 0)||
+            ((oHall[M1]->Vars).bHallFault != 0))//xu-190628
+        oSTC[M1]->Vars.hTorqueRef =  0;
+
+    //FOC_CalcCurrRef(M1);
+    if(FOCVars[M2].bMotorStop == 0)
+        FOC_CalcCurrRef(M1);
+
+}
+
+
+
+
+
+/*******************************************************************************
+* Function Name  : FOC_Clear
+* Description    : 左电机高频任务函数
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+void FOC_Clear(uint8_t bMotor)
+{
+    Curr_Components Inull = {(int16_t)0, (int16_t)0};
+    Volt_Components Vnull = {(int16_t)0, (int16_t)0};
+
+    FOCVars[bMotor].Iab = Inull;
+    FOCVars[bMotor].Ialphabeta = Inull;
+    FOCVars[bMotor].Iqd = Inull;
+    FOCVars[bMotor].Iqdref = Inull;
+    FOCVars[bMotor].hTeref = (int16_t)0;
+    FOCVars[bMotor].Vqd = Vnull;
+    FOCVars[bMotor].Valphabeta = Vnull;
+    FOCVars[bMotor].hElAngle = (int16_t)0;
+
+    PI_SetIntegralTerm(oPIDIq[bMotor], (int32_t)0);
+    PI_SetIntegralTerm(oPIDId[bMotor], (int32_t)0);
+
+    PI_SetIntegralTerm(oPIDIs[bMotor], (int32_t)0);
+    PI_SetIntegralTerm(oPIDVs[bMotor], (int32_t)0);
+    PI_SetIntegralTerm(oPIAcc[bMotor], (int32_t)0);
+
+    STC_Clear(oSTC[bMotor]);
+
+}
+
+
+/*******************************************************************************
+* Function Name  : FOC_CalcCurrRef
+* Description    : 左电机高频任务函数
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+void FOC_CalcCurrRef(uint8_t bMotor)
+{
+
+    FOCVars[bMotor].hTeref = STC_CalcTorqueReference(oSTC[bMotor],&FOCVars[bMotor]);
+    FOCVars[bMotor].Iqdref.qI_Component1 = FOCVars[bMotor].hTeref;
+
+    //if((FOCVars[bMotor].bRunning == 0)&&(FOCVars[bMotor].hTeref != 0))
+    if((FOCVars[bMotor].bRunning == 0)&&(oSTC[bMotor]->Vars.hTorqueRef != 0))
+    {
+        FOC_Clear(bMotor);
+        MC_MotorStart(bMotor);
+    }
+#ifdef SPEED_MODE
+    else if((FOCVars[bMotor].hTeref == 0)&&(oSTC[bMotor]->Vars.hSpeedRef01HzExt == 0))
+#else
+    //else if((FOCVars[bMotor].hTeref == 0)&&(oSTC[bMotor]->Vars.hTorqueRef == 0))
+    else if((FOCVars[bMotor].Vqd.qV_Component1 == 0)&&(oSTC[bMotor]->Vars.hTorqueRef == 0))
+#endif
+    {
+        if(FOCVars[bMotor].bRunning != 0)
+            FOCVars[bMotor].bRunning = 0;
+
+//		oHall[bMotor]->Vars.bBlockageFault = 0;   //当摇杆松开后，清除堵转故障
+
+    }
+
+}
+
+
+/*******************************************************************************
+* Function Name  : MC_MotorStart
+* Description    : 电机启动程序
+* parameters     : bMotor M1左电机        M2右电机
+* Return         : None
+*******************************************************************************/
+void MC_MotorStart(uint8_t bMotor)
+{
+    pPWMCVars_t pPWMCVars = &(oPwmc[bMotor]->Vars);
+    pSTCVars_t pSTCVars = &(oSTC[bMotor]->Vars);
+    pHALLVars_t pHallVars = &(oHall[bMotor]->Vars);
+    TIM_TypeDef* TIMx = (oPwmc[bMotor]->pParams->TIMx);
+
+    if(Relay.bStatus == 1)
+    {
+        PWMC_CheckMosfets(oPwmc[bMotor]);
+
+#ifdef SPEED_MODE
+        if(pSTCVars->hSpeedRef01HzExt > 0)
+#else
+        if(pSTCVars->hTorqueRef > 0)
+#endif
+            pHallVars->bSpeed = pHallVars->bPositive;
+        else
+            pHallVars->bSpeed = pHallVars->bNegative;
+
+        HALL_MeasureInit(oHall[bMotor]);
+
+//		if((pPWMCVars->bOverCurrentFault != 0)
+//			||(pPWMCVars->bMosfetHFault != 0)
+//			||(pPWMCVars->bMosfetLFault != 0)
+//			||(pHallVars->bBlockageFault != 0)
+//			||(pSTCVars->bPowerDownFault != 0)
+//			||(pHallVars->bHallInitFault != 0)
+//			||(pPWMCVars->bPhaseOffsetFault!= 0))
+//		{
+//			return;
+//		}
+
+        if((pPWMCVars->bOverCurrentFault != 0)
+                ||(pPWMCVars->bMosfetHFault != 0)
+                ||(pPWMCVars->bMosfetLFault != 0)
+                ||(pHallVars->bBlockageFault != 0)
+                ||(pSTCVars->bPowerDownFault != 0)
+                ||(pHallVars->bHallInitFault != 0)
+                ||(pPWMCVars->bPhaseOffsetFault!= 0))
+        {
+            FOCVars[bMotor].bMotorStop=1;
+            //TIM_CtrlPWMOutputs(TIMx,DISABLE);
+            return;
+        }
+        else
+            FOCVars[bMotor].bMotorStop=0;
+
+        FOC_Init(bMotor);
+
+        FOCVars[bMotor].bRunning = 1;
+        TIM_CtrlPWMOutputs(TIMx,ENABLE);
+    }
+}
+
+
+
+
+/*******************************************************************************
+* Function Name  : TSK_HighFrequencyTaskM2
+* Description    : 右电机高频任务函数
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+int32_t  M2_control_spdref;
+uint8_t M2_unlock_direction;
+int32_t M2_unlock_spd_ref;
+uint8_t M2_unlock_direction_flag;
+uint8_t M2_lock_off_flag;
+uint8_t M2_stop_complete_flag;
+uint8_t M2_unlock_start_flag;
+
+void TSK_HighFrequencyTaskM2(void)
+{
+    int32_t hRefTemp;
+
+#ifdef SPEED_MODE
+//	if((control_data.Right_motor_spd/6) > 40)
+//    if(control_data.Right_motor_spd > 240)
+//		oSTC[M2]->Vars.hSpeedRef01HzExt =  800;
+//	else
+//		oSTC[M2]->Vars.hSpeedRef01HzExt =  0;
+    oSTC[M2]->Vars.hSpeedRef01HzExt =  control_data.Right_motor_spd;
+#else
+//	oSTC[M2]->Vars.hTorqueRef =  control_data.Right_motor_spd*10;
+//	control_data.Left_motor_spd = hTorqRef;
+
+//	hRefTemp = (int32_t)control_data.Left_motor_spd*88;
+//	hRefTemp = hRefTemp/100;
+
+//	hRefTemp = (int32_t)control_data.Left_motor_spd*96;//88
+//	hRefTemp = hRefTemp/100;
+
+    //hRefTemp = (int32_t)control_data.Left_motor_spd;  //20190814 jimianhao
+
+    if(can_err_flag==1)  // 增加CAN通信错误数据处理,确保电机平稳快速停下 20190929
+    {
+        if(M2_control_spdref>=0)
+        {
+            M2_control_spdref -= can_err_step_cnt;
+            if(M2_control_spdref<=0) M2_control_spdref=0;
+        }
+        else
+        {
+            M2_control_spdref +=can_err_step_cnt;
+            if(M2_control_spdref>=0) M2_control_spdref=0;
+        }
+        hRefTemp = M2_control_spdref;
+    }
+    else
+    {
+        //hRefTemp = M2_control_spdref =(int32_t)control_data.Left_motor_spd;
+//	  hRefTemp = (int32_t)control_data.Left_motor_spd*96;//96  102
+//	  hRefTemp = M2_control_spdref =hRefTemp/100;
+        hRefTemp = (int32_t)control_data.Left_motor_spd;
+    }
+//////////////////////////斜坡处理//////////////////////////////////////////////////////
+
+//		{
+//      if(control_data.Right_motor_spd==0 && control_data.Left_motor_spd==0)
+//		  {
+//         M2_control_spdref=0;
+//		     hRefTemp = M2_static_speed_cal();
+//		  }
+//		  else
+//			{
+//		    //hRefTemp = M2_control_spdref =(int32_t)control_data.Left_motor_spd;
+//	      hRefTemp = (int32_t)control_data.Left_motor_spd*96;//96  102
+//	      hRefTemp = M2_control_spdref =hRefTemp/100;
+//        M2_unlock_direction_flag=0;
+//        M2_stop_complete_flag=0;
+//        M2_unlock_spd_ref=M2_control_spdref;
+//			}
+//		}
+
+////////////////////////开锁状态下用手推车后再按上锁键必须先减速后才能上锁//////////////////////
+
+    if(Electronic_lock_flag == 0 && lock_off_flag == 1)	// 	20191012 jimianhao
+    {
+        hRefTemp = M2_static_speed_cal();
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+//	if(ABS(hRefTemp)<600)
+//		hRefTemp=0;
+
+    if(hRefTemp > 32767)
+        hRefTemp = 32767;
+    else if(hRefTemp < -32767)
+        hRefTemp = -32767;
+
+    oSTC[M2]->Vars.hTorqueRef = (int16_t)hRefTemp;
+//    oSTC[M2]->Vars.hTorqueRef =  0;
+#endif
+
+    if(((oHall[M2]->Vars).bBlockageFault != 0)||
+//            ((oHall[M1]->Vars).bBlockageFault != 0)||
+//            ((oHall[M1]->Vars).bHallFault != 0)||
+            ((oHall[M2]->Vars).bHallFault != 0))//xu-190628
+        oSTC[M2]->Vars.hTorqueRef =  0;
+
+    //FOC_CalcCurrRef(M2);
+
+    if(FOCVars[M1].bMotorStop == 0)
+        FOC_CalcCurrRef(M2);
+
+}
+
+
+
+/*******************************************************************************
+* Function Name  : TSK_HighFrequencyTask
+* Description    : 高频任务函数
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+//void TSK_HighFrequencyTask(void)
+//{
+// 	if(bMCPwmPeriodCompleted==1)
+//	{
+//		bMCPwmPeriodCompleted=0;
+//		MC_Scheduler();
+//	}
+//}
+
+uint8_t  TASK1_FLAG;
+
+void TSK_HighFrequencyTask(void)//xu-190627
+{
+#ifdef UART_DEBUG
+    static uint8_t bUARTCnt = 0;
+    static uint8_t bUARTTest = 0;
+    int16_t htemp1;
+    extern uint8_t bHalltxxx;
+    extern int16_t hAccRegulatorOut;
+    extern int16_t hIsRegulatorOut;
+    extern int16_t hVsRegulatorOut;
+#endif
+
+    if(bMCPwmPeriodCompleted==1)
+    {
+
+        TASK1_FLAG = !TASK1_FLAG;
+
+
+        GPIO_SetBits(GPIOC,GPIO_Pin_13);//190711-1//LAMP1
+        bMCPwmPeriodCompleted=0;
+        if((oPwmc[M2]->Vars.bOverCurrentFault == 1)||
+                (oPwmc[M1]->Vars.bOverCurrentFault == 1))
+        {
+            if((FOCVars[M1].bRunning == 1)||
+                    (FOCVars[M2].bRunning == 1))
+            {
+                FOCVars[M2].bRunning = 0;
+                FOCVars[M1].bRunning = 0;
+            }
+            oSTC[M1]->Vars.hTorqueRef = 0;
+            oSTC[M2]->Vars.hTorqueRef = 0;
+        }
+        else
+            MC_Scheduler();
+
+#ifdef UART_DEBUG
+//        UARTC_PutChar(bUARTCnt);
+        if(bUARTCnt > 6)
+        {
+            bUARTCnt = 0;
+
+            UARTC_PutChar(FOCVars[M1].IqdHF.qI_Component1>>8);
+            UARTC_PutChar(FOCVars[M1].IqdHF.qI_Component1);
+//            UARTC_PutChar(FOCVars[M1].Iqdref.qI_Component1>>8);
+//            UARTC_PutChar(FOCVars[M1].Iqdref.qI_Component1);
+            UARTC_PutChar(FOCVars[M1].IqdHF.qI_Component2>>8);
+            UARTC_PutChar(FOCVars[M1].IqdHF.qI_Component2);
+//            UARTC_PutChar(oHall[M1]->Vars.bHallPortState);
+//            UARTC_PutChar(oHall[M1]->Vars.bHallRunState);
+//            UARTC_PutChar(oHall[M2]->Vars.hElAngle>>8);
+//            UARTC_PutChar(oHall[M2]->Vars.hElAngle);
+//            UARTC_PutChar(oHall[M1]->Vars.hHallAdjustAngle>>8);
+//            UARTC_PutChar(oHall[M1]->Vars.hHallAdjustAngle);
+//            UARTC_PutChar(oHall[M1]->Vars.hHallTimeSum>>8);
+//            UARTC_PutChar(oHall[M1]->Vars.hHallTimeSum);
+
+//            UARTC_PutChar(FOCVars[M2].Vqd.qV_Component1>>8);
+//            UARTC_PutChar(FOCVars[M2].Vqd.qV_Component1);
+//            UARTC_PutChar(FOCVars[M2].Vqd.qV_Component2>>8);
+//            UARTC_PutChar(FOCVars[M2].Vqd.qV_Component2);
+
+//            UARTC_PutChar(oHall[M2]->Vars.bHallPortState);
+//            UARTC_PutChar(oHall[M2]->Vars.bHallRunState);
+//            UARTC_PutChar(oHall[M2]->Vars.hElAngle>>8);
+//            UARTC_PutChar(oHall[M2]->Vars.hElAngle);
+//            UARTC_PutChar(oHall[M2]->Vars.hHallTimeSum>>8);
+//            UARTC_PutChar(oHall[M2]->Vars.hHallTimeSum);
+
+//            UARTC_PutChar(hHallAngle1>>8);
+//            UARTC_PutChar(hHallAngle1);
+
+//            UARTC_PutChar(bFlagTemp1);
+//            UARTC_PutChar(bHalltxxx);
+
+//            UARTC_PutChar(oSTC[M1]->Vars.hAccRegulatorOut>>8);
+//            UARTC_PutChar(oSTC[M1]->Vars.hAccRegulatorOut);
+//            UARTC_PutChar(oSTC[M1]->Vars.hIsRegulatorOut>>8);
+//            UARTC_PutChar(oSTC[M1]->Vars.hIsRegulatorOut);
+//            UARTC_PutChar(oSTC[M1]->Vars.hVsRegulatorOut>>8);
+//            UARTC_PutChar(oSTC[M1]->Vars.hVsRegulatorOut);
+
+//            UARTC_PutChar(FOCVars[M2].Iab.qI_Component1>>8);
+//            UARTC_PutChar(FOCVars[M2].Iab.qI_Component1);
+//            UARTC_PutChar(FOCVars[M2].hPwmD>>8);
+//            UARTC_PutChar(FOCVars[M2].hPwmD);
+//            UARTC_PutChar(FOCVars[M1].hPwmD>>8);
+//            UARTC_PutChar(oPwmc[M2]->Vars.bSoFOC);
+
+//            UARTC_PutChar(TIM1->CCR1>>8);
+//            UARTC_PutChar(TIM1->CCR1);
+
+//            UARTC_PutChar(bUARTTest++);
+
+//            UARTC_PutChar(FOCVars[M1].hPwmA>>8);
+//            UARTC_PutChar(FOCVars[M1].hPwmA);
+//            UARTC_PutChar(FOCVars[M1].hPwmB>>8);
+//            UARTC_PutChar(FOCVars[M1].hPwmB);
+//            UARTC_PutChar(FOCVars[M1].hPwmC>>8);
+//            UARTC_PutChar(FOCVars[M1].hPwmC);
+//            UARTC_PutChar(oHall[M1]->Vars.bHallRunState);
+
+//            UARTC_PutChar(FOCVars[M2].hSampPoint>>8);
+//            UARTC_PutChar(FOCVars[M2].hSampPoint);
+//            UARTC_PutChar(FOCVars[M1].hPwmD>>8);
+//            UARTC_PutChar(FOCVars[M1].hPwmD);
+
+//            htemp1 = HALL_GetAvrgMecSpeed01Hz(oSTC[M2]->Vars.oHall);
+//            UARTC_PutChar(htemp1>>8);
+//            UARTC_PutChar(htemp1);
+//            UARTC_PutChar(FOCVars[M2].Vqd.qV_Component1>>8);
+//            UARTC_PutChar(FOCVars[M2].Vqd.qV_Component1);
+//            htemp1 = (int16_t)((oSTC[M2]->Vars.oHall->Vars.bPositive *  (int32_t)HALL_MEC_RATIO * 100)/ (oSTC[M2]->Vars.oHall->Vars.hAvrgHallTimeSum));
+//            if((htemp1 > -30)&&(htemp1 < 30))
+//                htemp1 = 0;
+//            UARTC_PutChar(hHallSpeed[M2]>>8);
+//            UARTC_PutChar(hHallSpeed[M2]);
+//            UARTC_PutChar(oSTC[M2]->Vars.hTorqueRef>>8);
+//            UARTC_PutChar(oSTC[M2]->Vars.hTorqueRef);
+//            UARTC_PutChar(FOCVars[M2].Iqdref.qI_Component1>>8);
+//            UARTC_PutChar(FOCVars[M2].Iqdref.qI_Component1);
+//            UARTC_PutChar(FOCVars[M2].Iqd.qI_Component1>>8);
+//            UARTC_PutChar(FOCVars[M2].Iqd.qI_Component1);
+//            UARTC_PutChar(FOCVars[M2].Vqd.qV_Component1>>8);
+//            UARTC_PutChar(FOCVars[M2].Vqd.qV_Component1);
+//            htemp1 = (int16_t)(-hAngleFilterSum[1]>>1);
+//            UARTC_PutChar(htemp1>>8);
+//            UARTC_PutChar(htemp1);
+
+//            UARTC_PutChar(FOCVars[M1].Iqd.qI_Component1>>8);
+//            UARTC_PutChar(FOCVars[M1].Iqd.qI_Component1);
+//            UARTC_PutChar(FOCVars[M1].Iqd.qI_Component2>>8);
+//            UARTC_PutChar(FOCVars[M1].Iqd.qI_Component2);
+
+#ifdef LINEAR_HALL
+//            UARTC_PutChar(Valphabeta.qV_Component1>>8);
+//            UARTC_PutChar(Valphabeta.qV_Component1);
+//
+//            UARTC_PutChar(hAngleReceived[0]>>8);
+//            UARTC_PutChar(hAngleReceived[0]);
+//            UARTC_PutChar(hAngleReceived[1]>>8);
+//            UARTC_PutChar(hAngleReceived[1]);
+//            UARTC_PutChar(hAngleSpdReceived[0]>>8);
+//            UARTC_PutChar(hAngleSpdReceived[0]);
+//            UARTC_PutChar(hAngleSpdReceived[1]>>8);
+//            UARTC_PutChar(hAngleSpdReceived[1]);
+//            UARTC_PutChar(oHall[M1]->Vars.hElAngle>>8);
+//            UARTC_PutChar(oHall[M1]->Vars.hElAngle);
+//            UARTC_PutChar(oHall[M2]->Vars.hElAngle>>8);
+//            UARTC_PutChar(oHall[M2]->Vars.hElAngle);
+//            UARTC_PutChar(ucHallVal[0]);
+//            UARTC_PutChar(ucHallVal[1]);
+
+#endif
+        }
+        else
+            bUARTCnt ++;
+
+#endif
+
+
+    }
+}
+
+/*******************************************************************************
+* Function Name  : FOC_Init
+* Description    : FOC 变量初始化，每次电机启动时调用
+* parameters     : bMotor M1左电机        M2右电机
+* Return         : None
+*******************************************************************************/
+void FOC_Init(uint8_t bMotor)
+{
+
+    Volt_Components Valphabeta, Vqd;
+    int16_t hElAngledpp;
+#ifdef RUN_BLDC//190716
+    int16_t temp;
+    uint8_t tempHall;
+#endif
+
+    Vqd.qV_Component1 = FOCVars[bMotor].hTeref;
+
+    Vqd.qV_Component2 = 0;
+
+    FOCVars[bMotor].Vqd = Vqd;
+
+    FOCVars[bMotor].bStartCount = 0;
+
+    Vqd = Circle_Limitation(oCLM[bMotor], Vqd);
+
+    Valphabeta = MCM_Rev_Park(Vqd, hElAngledpp);
+
+#ifdef RUN_BLDC//190716
+    temp = oSTC[bMotor]->Vars.hTorqueRef>>3;
+    if(temp < 0 )
+        temp = -temp;
+    if(temp > PWM_PERIOD)
+        temp = PWM_PERIOD;
+    tempHall = oHall[bMotor]->Vars.bHallRunState;
+    tempHall = 7- tempHall;
+    ChangePhase(tempHall,temp,oPwmc[bMotor]->pParams->TIMx);
+#else
+    PWMC_SetPhaseVoltage(&FOCVars[bMotor],Valphabeta,oPwmc[bMotor]);
+#endif
+
+    oPwmc[bMotor]->pParams->TIMx->CCR4 = oPwmc[bMotor]->Vars.Half_PWMPeriod-1;
+
+    FOCVars[bMotor].Valphabeta = Valphabeta;
+    FOCVars[bMotor].hElAngle = hElAngledpp;
+
+    oSTC[bMotor]->Vars.hIsRef = oSTC[bMotor]->pParams->hIsRefDefault+oPwmc[bMotor]->Vars.hBusCurrentOffset;
+
+}
+
+
+
+
+/*******************************************************************************
+* Function Name  : TSK_DualDriveUpdate
+* Description    : 更新下一次FOC转换的电机
+* parameters     : oDrive M1左电机    M2右电机
+* Return         : None
+*******************************************************************************/
+void TSK_DualDriveUpdate(uint8_t oDrive)
+{
+    FOC_index = oDrive;
+}
+
+
+
+/*******************************************************************************
+* Function Name  : TSK_GetDriveIndex
+* Description    : 获取FOC转换的电机索引
+* parameters     : None
+* Return         : 返回电机索引
+*******************************************************************************/
+uint8_t TSK_GetDriveIndex(void)
+{
+    return FOC_index;
+}
+
+
+
+/*******************************************************************************
+* Function Name  : TB_Init
+* Description    : 时基初始化函数
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+void TB_Init(void)
+{
+    SysTick_Config(72000);//1ms
+}
+
+
+/*******************************************************************************
+* Function Name  : SysTick_Handler
+* Description    : 滴答定时器中断处理函数
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+void SysTick_Handler(void)
+{
+    static u8 Tick1msCnt=1;
+    static u8 Tick16msCnt=16;
+
+    if(--Tick1msCnt == 0)
+    {
+        Tick1msCnt = 1;
+        bMC1msCompleted=1; 						//1ms
+    }
+    if(--Tick16msCnt == 0)
+    {
+        Tick16msCnt= 16;
+        bMC16msCompleted=1; 					//16ms
+    }
+
+}
+
+
+/*******************************************************************************
+* Function Name  : MediumFrequencyTask
+* Description    : 中频任务
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+//extern u16 Electronic_lock_flag;
+//uint8_t lock_off_flag;
+
+uint32_t  count=0;
+uint16_t  count1=0;
+uint16_t  pwm_relay=10;//6
+uint32_t  pwm_count=10;
+
+uint8_t  motoroff_flag=0;
+uint8_t  motor_stop_steady_flag=0;
+
+void MediumFrequencyTask(void)
+{
+#ifdef SPEED_MODE
+    static uint16_t hCnt1 = 0;
+    int16_t hReference = 0;
+    int16_t hError = 0;
+
+    int16_t hSpeedBak[2] = {0,0};
+    int16_t haReference = 0;
+    int16_t haError = 0;
+#endif
+
+    if(bMC1msCompleted==1)
+    {
+        bMC1msCompleted=0;
+
+//		hIbusLeft = oSTC[M1]->Vars.hIs - oPwmc[M1]->Vars.hBusCurrentOffset;//xu-190628
+//        hIbusRight = oSTC[M2]->Vars.hIs - oPwmc[M2]->Vars.hBusCurrentOffset;
+
+//速度环PI，获取反馈速度，计算PI。
+#ifdef SPEED_MODE
+
+        if(hCnt1 < 31)
+            hCnt1 ++;
+        else
+            hCnt1 = 0;
+
+        if(hCnt1 == 0)
+        {
+            hHallSpeed[M1] = HALL_GetAvrgMecSpeed01Hz(oSTC[M1]->Vars.oHall);
+            if(FOCVars[M1].bRunning == 1)
+            {
+                hReference = oSTC[M1]->Vars.hSpeedRef01HzExt;
+                if(hReference > (int32_t)oSTC[M1]->pParams->hMaxMecSpeed01Hz)
+                    hReference = oSTC[M1]->pParams->hMaxMecSpeed01Hz;
+                else if(hReference < (-(int32_t)oSTC[M1]->pParams->hMaxMecSpeed01Hz))
+                    hReference = -(int32_t)oSTC[M1]->pParams->hMaxMecSpeed01Hz;
+
+                hError = hReference - hHallSpeed[M1];
+
+                oSTC[M1]->Vars.hTorqueRef = PI_Controller(oSTC[M1]->Vars.oPISpeed, (int32_t)hError);
+            }
+        }
+
+        if(hCnt1 == 1)
+        {
+            hHallSpeed[M2] = HALL_GetAvrgMecSpeed01Hz(oSTC[M2]->Vars.oHall);
+            if(FOCVars[M2].bRunning == 1)
+            {
+                hReference = oSTC[M2]->Vars.hSpeedRef01HzExt;
+                if(hReference > oSTC[M2]->pParams->hMaxMecSpeed01Hz)
+                    hReference = oSTC[M2]->pParams->hMaxMecSpeed01Hz;
+                else if(hReference < (-oSTC[M2]->pParams->hMaxMecSpeed01Hz))
+                    hReference = -oSTC[M2]->pParams->hMaxMecSpeed01Hz;
+
+                hError = hReference - hHallSpeed[M2];
+
+                oSTC[M2]->Vars.hTorqueRef = PI_Controller(oSTC[M2]->Vars.oPISpeed, (int32_t)hError);
+            }
+        }
+#endif
+
+//速度环PI，获取反馈速度，计算加速度，根据反馈和目标速度计算目标加速度，计算加速度PI。
+#ifdef SPEED_MODE111
+
+        if(hCnt1 < 31)
+            hCnt1 ++;
+        else
+            hCnt1 = 0;
+
+        if(hCnt1 == 0)
+        {
+            hHallSpeed[M1] = HALL_GetAvrgMecSpeed01Hz(oSTC[M1]->Vars.oHall);
+            if(FOCVars[M1].bRunning == 1)
+            {
+                hReference = oSTC[M1]->Vars.hSpeedRef01HzExt;
+                if(hReference > (int32_t)oSTC[M1]->pParams->hMaxMecSpeed01Hz)
+                    hReference = oSTC[M1]->pParams->hMaxMecSpeed01Hz;
+                else if(hReference < (-(int32_t)oSTC[M1]->pParams->hMaxMecSpeed01Hz))
+                    hReference = -(int32_t)oSTC[M1]->pParams->hMaxMecSpeed01Hz;
+
+                hError = hReference - hHallSpeed[M1];
+
+                if(hError > 0)
+                    haReference = (hError * hError)>>15;
+                else
+                    haReference = -(hError * hError)>>15;
+
+                haError = haReference - hHallSpeed[M1] + hSpeedBak[M1];
+
+                oSTC[M1]->Vars.hTorqueRef = PI_Controller(oSTC[M1]->Vars.oPISpeed, (int32_t)haError);
+            }
+            hSpeedBak[M1] = hHallSpeed[M1];
+        }
+
+        if(hCnt1 == 1)
+        {
+            hHallSpeed[M2] = HALL_GetAvrgMecSpeed01Hz(oSTC[M2]->Vars.oHall);
+            if(FOCVars[M2].bRunning == 1)
+            {
+                hReference = oSTC[M2]->Vars.hSpeedRef01HzExt;
+                if(hReference > oSTC[M2]->pParams->hMaxMecSpeed01Hz)
+                    hReference = oSTC[M2]->pParams->hMaxMecSpeed01Hz;
+                else if(hReference < (-oSTC[M2]->pParams->hMaxMecSpeed01Hz))
+                    hReference = -oSTC[M2]->pParams->hMaxMecSpeed01Hz;
+
+                hError = hReference - hHallSpeed[M2];
+                if(hError > 0)
+                    haReference = (hError * hError)>>8;
+                else
+                    haReference = -(hError * hError)>>8;
+
+                haError = haReference - hHallSpeed[M2] + hSpeedBak[M2];
+
+                if(haError > 600)
+                    haError = 600;
+                else if(haError < -600)
+                    haError = -600;
+
+                oSTC[M2]->Vars.hTorqueRef = PI_Controller(oSTC[M2]->Vars.oPISpeed, (int32_t)haError);
+            }
+            hSpeedBak[M2] = hHallSpeed[M2];
+        }
+#endif
+
+///////////////////////IO模拟PWM输出控制电磁刹车////////////20190911 jimianhao
+
+#if 1
+        if(Electronic_lock_flag==0 && lock_off_flag==0)
+        {
+            count++;
+            if(count<pwm_relay)
+            {
+//       if( (M2_control_spdref !=0 &&  M1_control_spdref !=0) ) //     control_data.Right_motor_spd  control_data.Left_motor_spd
+                if( (M2_control_spdref !=0 && M1_control_spdref!=0 && can_err_flag==1) || (control_data.Left_motor_spd!=0 && control_data.Right_motor_spd!=0 && can_err_flag==0) )
+                {
+                    // pwm_relay=6;
+                    GPIO_SetBits(GPIOC,GPIO_Pin_12);
+                }
+                else
+                {
+                    if(motoroff_flag==0 && motor_stop_steady_flag==1) GPIO_SetBits(GPIOC,GPIO_Pin_12);
+//				 else
+//				 {
+//					  pwm_relay=2;
+//					  GPIO_SetBits(GPIOC,GPIO_Pin_12);
+//				 }
+                }
+
+            }
+            else
+            {
+                GPIO_ResetBits(GPIOC,GPIO_Pin_12);
+                M1_unlock_spd_ref=	M2_unlock_spd_ref=0;
+            }
+
+            if(count==pwm_count)count=0;
+        }
+        else count=0;
+#endif
+
+///////////////////////////////////////////////////////////
+
+#ifdef DEADBAND_OFFSET_EN
+        PWMC_CalcCompensationTime(FOCVars[M1].Vqd, oPwmc[M1]);
+        PWMC_CalcCompensationTime(FOCVars[M2].Vqd, oPwmc[M2]);
+#endif
+    }
+}
+
+
+
+/*******************************************************************************
+* Function Name  : BlockageFaultReset
+* Description    : 清除堵转故障标志
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+void BlockageFaultReset(pHALL_t left, pHALL_t right, FOCVars_t *GlobalLeft, FOCVars_t *GlobalRight)//xu-190627
+{
+
+    if((((left->Vars).bBlockageFault == 1)||
+            ((right->Vars).bBlockageFault == 1))&&
+            (control_data.Right_motor_spd == 0)&&
+            (GlobalLeft->bRunning == 0)&&
+            (control_data.Left_motor_spd == 0)&&
+            (GlobalRight->bRunning == 0))
+    {
+        (left->Vars).bBlockageFault = 0;
+        (right->Vars).bBlockageFault = 0;
+    }
+}
+
+
+/*******************************************************************************
+* Function Name  : LowFrequencyTask
+* Description    : 低频任务
+* parameters     : None
+* Return         : None
+*******************************************************************************/
+uint8_t  bat_charge;
+uint16_t motor_stop_cnt;
+uint8_t R_BREAK;
+uint8_t L_BREAK;
+uint8_t  FAULTN_Relay_FB_R_err=0;
+uint8_t  FAULTN_Relay_FB_L_err=0;
+uint8_t  delay_off=0;
+uint16_t delay_off_cnt=0;
+uint16_t L_BREAK_cnt;
+uint16_t R_BREAK_cnt;
+
+extern void can_communication_check(void);
+
+void LowFrequencyTask(void)
+{
+
+    if(bMC16msCompleted==1)
+    {
+        can_communication_check(); //CAN 通信故障判断 20190929  jimianhao
+        if(can_err_flag==1) Electronic_lock_flag=0;// 出现通信故障时电子解锁必须要合上 2019029 jimianhao
+
+        bMC16msCompleted=0;
+        MC_Relay();
+
+        if(MC_FaultDetection_flag==1 )//继电器吸合后再自检 20191028 jimianhao
+        {
+            MC_FaultDetection();//190716
+            MC_FaultDetection_flag=0;
+        }
+
+        BlockageFaultReset(oHall[M1],oHall[M2],&FOCVars[M1],&FOCVars[M2]);
+
+
+        R_BREAK=GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_11);  //右电机刹车输入开关  20190814 jimianhao
+        L_BREAK=GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9);  //左电机刹车输入开关   20190814 jimianhao
+
+        if(Electronic_lock_flag == 1 )	//开锁状态，只能手推，不能电动	20190812 jimianhao
+        {
+            if(lock_off_flag == 0)
+            {
+                GPIO_SetBits(GPIOC,GPIO_Pin_12) ;
+                lock_off_flag=1;
+                TIM_CtrlPWMOutputs(TIM1,DISABLE);
+                TIM_CtrlPWMOutputs(TIM8,DISABLE);
+            }  // 打开继电器
+        }
+        else //闭锁状态，电动运行（默认状态）
+        {
+            if(lock_off_flag==1)
+            {
+                if(M1_lock_off_flag==1 && M2_lock_off_flag==1)
+                {
+                    lock_off_flag=0;
+                    GPIO_ResetBits(GPIOC,GPIO_Pin_12);
+                    M1_lock_off_flag=M2_lock_off_flag=0;
+                    M1_unlock_direction_flag=M2_unlock_direction_flag=0;
+                    M1_stop_complete_flag = M2_stop_complete_flag=0;
+                    M1_unlock_spd_ref=	M2_unlock_spd_ref=0;
+                }
+//			 lock_off_flag=0;
+//			 GPIO_ResetBits(GPIOC,GPIO_Pin_12);
+//			 TIM_CtrlPWMOutputs(TIM1,ENABLE);
+//			 TIM_CtrlPWMOutputs(TIM8,ENABLE);
+            }
+            else
+            {
+#if 0  //1有电磁刹车故障检测	 0 取消电磁刹车故障检测
+                if( FOCVars[M1].bRunning==0 && FOCVars[M2].bRunning==0 && motor_stop_steady_flag==0)
+                {
+                    if ( R_BREAK ==0  )  FAULTN_Relay_FB_R_err=0;
+                    if ( L_BREAK ==0  )  FAULTN_Relay_FB_L_err=0;
+
+                    if(L_BREAK ==1 )L_BREAK_cnt++;
+                    else L_BREAK_cnt=0;
+                    if(L_BREAK_cnt>30  && control_data.Left_motor_spd==0 && control_data.Right_motor_spd==0) FAULTN_Relay_FB_L_err=1;//松开电磁刹车报故障 20190929 jimianhao
+
+                    if(R_BREAK ==1 )R_BREAK_cnt++;
+                    else R_BREAK_cnt=0;
+                    if(R_BREAK_cnt>30  && control_data.Left_motor_spd==0 && control_data.Right_motor_spd==0) FAULTN_Relay_FB_R_err=1; //松开电磁刹车报故障 20190929 jimianhao
+
+                }
+                else
+                {
+                    L_BREAK_cnt=R_BREAK_cnt=0;
+                }
+#endif
+
+                if( ( control_data.Left_motor_spd !=0 && control_data.Right_motor_spd !=0 ) &&
+                        ((FOCVars[M1].bRunning == 1)|| (FOCVars[M2].bRunning == 1)) )//20190812 jimianhao	  M1_control_spdref  M2_control_spdref
+                {
+                    motor_stop_steady_flag=1;
+                    //GPIO_SetBits(GPIOC,GPIO_Pin_12);
+                    motor_stop_cnt=delay_off_cnt=delay_off=motoroff_flag=0;
+                    M1_unlock_start_flag=M2_unlock_start_flag=0;
+                }
+                if( (M2_control_spdref ==0 && M1_control_spdref==0 && can_err_flag==1) || (control_data.Left_motor_spd==0 && control_data.Right_motor_spd==0 && can_err_flag==0) )//20190812 jimianhao
+                    // if(M2_control_spdref ==0 && M1_control_spdref==0 && FOCVars[M1].bRunning ==0  && FOCVars[M2].bRunning ==0 )
+                {
+                    if(motor_stop_cnt<motor_stop_time) motor_stop_cnt++; //电机停止延时 20190813  jimianhao  4000
+                    else
+//				 if( (can_err_flag==0 && M1_unlock_start_flag==1 && M2_unlock_start_flag==1) ||
+//					   (can_err_flag==1 && M2_control_spdref==0 && M1_control_spdref==0)
+//					 )
+                    {
+                        if(motoroff_flag==0)
+                        {
+                            //GPIO_ResetBits(GPIOC,GPIO_Pin_12);
+                            motor_stop_cnt=motor_stop_time+10;
+                            motor_stop_steady_flag=1;
+                            delay_off=1;
+                            delay_off_cnt=0;
+                            motoroff_flag=1;
+                        }
+                    }
+
+                    if( delay_off==1) //电磁刹车停止延时 20190814 jimianhao
+                    {
+                        if(delay_off_cnt>=delay_off_time)// 4000
+                        {
+                            motor_stop_steady_flag=delay_off=0;
+                        }
+                        else
+                        {
+                            delay_off_cnt++;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        bat_charge = !( GPIO_ReadInputDataBit(GPIOD,GPIO_Pin_2) );//增加电池充电判断 20190812 jimianhao
+
+    }
+
+}
+
+
+/*******************************************************************************
+* Function Name  : FOC_CurrController
+* Description    : FOC变换函数
+* parameters     : oDrive M1左电机    M2右电机
+* Return         : None
+*******************************************************************************/
+int16_t hVqLimit;
+#pragma inline
+void FOC_CurrController(uint8_t bMotor)
+{
+    Curr_Components Iab, Ialphabeta, Iqd;
+    //Volt_Components Valphabeta, Vqd;
+    int16_t hPreVq;
+    int32_t wProcessError;
+    int16_t hElAngledpp;
+#ifdef RUN_BLDC//190716
+    int16_t temp;
+    uint8_t tempHall;
+#endif
+
+
+    if(FOCVars[bMotor].bRunning == 1)
+    {
+#ifdef LINEAR_HALL//190822
+        hElAngledpp = -LinearHall_GetElAngle(bMotor) + hLinearHallAngleShift[bMotor];
+
+#if 0//test
+
+        if(bMotor == 0)
+            hElAngledpp += S16_30_PHASE_SHIFT;
+        else
+            hElAngledpp -= S16_30_PHASE_SHIFT;
+
+        if(hElAngledpp < -S16_120_PHASE_SHIFT)
+            hElAngledpp = -S16_150_PHASE_SHIFT;
+        else if(hElAngledpp < -S16_60_PHASE_SHIFT)
+            hElAngledpp = -S16_90_PHASE_SHIFT;
+        else if(hElAngledpp < 0)
+            hElAngledpp = -S16_30_PHASE_SHIFT;
+        else if(hElAngledpp < S16_60_PHASE_SHIFT)
+            hElAngledpp = S16_30_PHASE_SHIFT;
+        else if(hElAngledpp < S16_120_PHASE_SHIFT)
+            hElAngledpp = S16_90_PHASE_SHIFT;
+        else
+            hElAngledpp = S16_150_PHASE_SHIFT;
+
+#endif
+
+#else
+        hElAngledpp = HALL_GetElAngle(oHall[bMotor]);
+#endif
+
+        //hElAngledpp+=50;
+
+        Iab = PWMC_GetPhaseCurrents(oPwmc[bMotor]);
+
+        Ialphabeta = MCM_Clarke(Iab);
+
+        Iqd = MCM_Park(Ialphabeta, hElAngledpp);
+
+        Iqd.qI_Component1 = (Iqd.qI_Component1*6+ FOCVars[bMotor].Iqd.qI_Component1*10)>>4;
+        Iqd.qI_Component2 = (Iqd.qI_Component2*6+ FOCVars[bMotor].Iqd.qI_Component2*10)>>4;
+
+        hPreVq = Vqd.qV_Component1;
+
+//		wProcessError = (int32_t)(FOCVars[bMotor].Iqdref.qI_Component1) - Iqd.qI_Component1;
+//	    Vqd.qV_Component1 = PI_Controller(oPIDIq[bMotor],wProcessError);
+        //Vqd.qV_Component1 = oSTC[bMotor]->Vars.hTorqueRef;
+
+
+        if(FOCVars[bMotor].Iqdref.qI_Component1>0)     //相电流抑制
+        {
+            wProcessError = (int32_t)(IQMAX) - Iqd.qI_Component1;
+            Vqd.qV_Component1 = PI_Controller(oPIDIq[bMotor],wProcessError);
+            if((Vqd.qV_Component1 > FOCVars[bMotor].Iqdref.qI_Component1)||(Vqd.qV_Component1<0))
+                Vqd.qV_Component1 = FOCVars[bMotor].Iqdref.qI_Component1;
+        }
+        else if(FOCVars[bMotor].Iqdref.qI_Component1<0)
+        {
+            wProcessError = (int32_t)(-IQMAX) - Iqd.qI_Component1;
+            //hVqLimit = PI_Controller(oPIDIq[bMotor],wProcessError);
+            //Vqd.qV_Component1  = hVqLimit;
+            Vqd.qV_Component1 = PI_Controller(oPIDIq[bMotor],wProcessError);
+            //---------------------------------------------------------------------------------?IQ elfern 191014
+            if((Vqd.qV_Component1 < FOCVars[bMotor].Iqdref.qI_Component1)||(Vqd.qV_Component1>0))
+                Vqd.qV_Component1 = FOCVars[bMotor].Iqdref.qI_Component1;
+        }
+        else Vqd.qV_Component1 = FOCVars[bMotor].Iqdref.qI_Component1;
+
+		//FOCVars[bMotor].IqdHF.qI_Component1 = FOCVars[bMotor].Iqdref.qI_Component1;
+
+#if (MTPA_ENABLING == ENABLE)
+        MTPA_CalcCurrRef(oMTPA[bMotor], &FOCVars[bMotor], hPreVq);
+		FOCVars[bMotor].Iqdref.qI_Component2 = 0;
+#else
+        FOCVars[bMotor].Iqdref.qI_Component2 = 0;
+#endif
+
+//    Vqd.qV_Component1 = FOCVars[bMotor].Iqdref.qI_Component1;//相电流放开
+
+        wProcessError = (int32_t)(FOCVars[bMotor].Iqdref.qI_Component2) - Iqd.qI_Component2;
+        if((FOCVars[bMotor].bStartCount>6)&&(Vqd.qV_Component1!=0))
+            Vqd.qV_Component2 = PI_Controller(oPIDId[bMotor],wProcessError);
+        else
+            Vqd.qV_Component2 = 0;
+
+        //跑方波//190701
+//		Vqd.qV_Component1 = oSTC[bMotor]->Vars.hTorqueRef;
+//	    Vqd.qV_Component2 = 0;
+
+        FOCVars[bMotor].Vqd = Vqd;
+
+        Vqd = Circle_Limitation(oCLM[bMotor], Vqd);
+
+        Valphabeta = MCM_Rev_Park(Vqd, hElAngledpp);
+
+#ifdef RUN_BLDC//190716
+
+        tempHall = oHall[bMotor]->Vars.bHallRunState;
+        temp = oSTC[bMotor]->Vars.hTorqueRef/13;
+        if(temp > (PWM_PERIOD-1))
+            temp = PWM_PERIOD-1;
+        if(temp < 0 )
+        {
+            temp = -temp;
+            tempHall = 7- tempHall;
+        }
+        ChangePhase(tempHall,temp,oPwmc[bMotor]->pParams->TIMx);
+#else
+        PWMC_SetPhaseVoltage(&FOCVars[bMotor],Valphabeta,oPwmc[bMotor]);
+#endif
+
+        if(FOCVars[bMotor].bStartCount<7)
+            FOCVars[bMotor].bStartCount++;
+
+        FOCVars[bMotor].Iab = Iab;
+        FOCVars[bMotor].Ialphabeta = Ialphabeta;
+        FOCVars[bMotor].Iqd = Iqd;
+        FOCVars[bMotor].Valphabeta = Valphabeta;
+        FOCVars[bMotor].hElAngle = hElAngledpp;
+    }
+}
+
+
+int32_t M1_static_speed_cal(void)
+{
+    int32_t static_speed;
+
+    if(M1_unlock_direction_flag==0 )
+    {
+        if(HALL_GetAvrgMecSpeed01Hz(oHall[M1])!=0)
+        {
+            if( HALL_GetAvrgMecSpeed01Hz(oHall[M1]) > 0) M1_unlock_direction=0; // 正转方向
+            if( HALL_GetAvrgMecSpeed01Hz(oHall[M1]) < 0) M1_unlock_direction=1; // 反转方向
+        }
+        else
+        {
+            M1_lock_off_flag=1;
+            M1_unlock_spd_ref=0;
+            //M1_unlock_direction_flag=0;
+        }
+        M1_unlock_direction_flag=1;
+    }
+
+    if(M1_unlock_direction==0 && M1_unlock_direction_flag !=0) // 正转方向
+    {
+        if(M1_stop_complete_flag==0)
+        {
+            M1_unlock_spd_ref -=2;
+            if(M1_unlock_spd_ref<=-unlock_spd_ref_max) M1_unlock_spd_ref=-unlock_spd_ref_max;
+            if( HALL_GetAvrgMecSpeed01Hz(oHall[M1])< 0 )
+            {
+                M1_lock_off_flag=1;
+                //M1_unlock_spd_ref=0;
+                //M1_unlock_direction_flag=0;
+                M1_stop_complete_flag=1;
+            }
+        }
+        else
+        {
+            M1_unlock_spd_ref = M1_unlock_spd_ref;
+            M1_unlock_start_flag=1;
+        }
+    }
+
+    if(M1_unlock_direction==1 && M1_unlock_direction_flag !=0) // 反转方向
+    {
+        if(M1_stop_complete_flag==0)
+        {
+            M1_unlock_spd_ref +=2;
+            if(M1_unlock_spd_ref>=unlock_spd_ref_max) M1_unlock_spd_ref=unlock_spd_ref_max;  //9度坡5500(坐人)   12度坡8000(坐人)
+            if( HALL_GetAvrgMecSpeed01Hz(oHall[M1])> 0  )
+            {
+                M1_lock_off_flag=1;
+                //M1_unlock_spd_ref=0;
+                //M1_unlock_direction_flag=0;
+                M1_stop_complete_flag=1;
+            }
+        }
+        else
+        {
+            M1_unlock_spd_ref = M1_unlock_spd_ref;
+            M1_unlock_start_flag=1;
+        }
+    }
+
+    static_speed = M1_unlock_spd_ref ;
+    return   static_speed ;
+}
+
+
+int32_t M2_static_speed_cal(void)
+{
+    int32_t static_speed;
+
+    if(M2_unlock_direction_flag==0 )
+    {
+        if(HALL_GetAvrgMecSpeed01Hz(oHall[M2])!=0)
+        {
+            if( HALL_GetAvrgMecSpeed01Hz(oHall[M2]) > 0) M2_unlock_direction=0; // 正转方向
+            if( HALL_GetAvrgMecSpeed01Hz(oHall[M2]) < 0) M2_unlock_direction=1; // 反转方向
+        }
+        else
+        {
+            M2_lock_off_flag=1;
+            M2_unlock_spd_ref=0;
+            //M2_unlock_direction_flag=0;
+        }
+        M2_unlock_direction_flag=1;
+    }
+
+
+    if(M2_unlock_direction==0 && M2_unlock_direction_flag !=0  ) // 正转方向
+    {
+        if(M2_stop_complete_flag==0)
+        {
+            M2_unlock_spd_ref -=2;
+            if(M2_unlock_spd_ref<=-unlock_spd_ref_max) M2_unlock_spd_ref=-unlock_spd_ref_max;
+            if( HALL_GetAvrgMecSpeed01Hz(oHall[M2])< 0 )
+            {
+                M2_lock_off_flag=1;
+                //M2_unlock_spd_ref=0;
+                //M2_unlock_direction_flag=0;
+                M2_stop_complete_flag=1;
+            }
+        }
+        else
+        {
+            M2_unlock_spd_ref = M2_unlock_spd_ref;
+            M2_unlock_start_flag=1;
+        }
+    }
+
+
+    if(M2_unlock_direction==1 && M2_unlock_direction_flag !=0) // 反转方向
+    {
+        if(M2_stop_complete_flag==0)
+        {
+            M2_unlock_spd_ref +=2;
+            if(M2_unlock_spd_ref>=unlock_spd_ref_max) M2_unlock_spd_ref=unlock_spd_ref_max;  //9度坡5500(坐人)   12度坡8000(坐人)
+            if( HALL_GetAvrgMecSpeed01Hz(oHall[M2])> 0  )
+            {
+                M2_lock_off_flag=1;
+                //M2_unlock_spd_ref=0;
+                //M2_unlock_direction_flag=0;
+                M2_stop_complete_flag=1;
+            }
+        }
+        else
+        {
+            M2_unlock_spd_ref = M2_unlock_spd_ref;
+            M2_unlock_start_flag=1;
+        }
+    }
+
+    static_speed = M2_unlock_spd_ref ;
+    return   static_speed ;
+}
+
+/**************************************************************END OF FILE****/

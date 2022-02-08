@@ -1,0 +1,5 @@
+firmware/mcu_ws/log/
+firmware/mcu_ws/build/
+firmware/mcu_ws/install/
+firmware/mcu_ws/ros2/cvte_interfaces/
+*.pyc

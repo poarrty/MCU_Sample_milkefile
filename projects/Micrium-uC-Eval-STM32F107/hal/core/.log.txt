@@ -1,0 +1,889 @@
+No line number information available.
+No symbol table is loaded.  Use the "file" command.
+No line number information available.
+4711The current source language is "auto; currently c".
+GNU gdb (GNU Arm Embedded Toolchain 10.3-2021.07) 10.2.90.20210621-git
+Copyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "--host=x86_64-linux-gnu --target=arm-none-eabi".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+Working directory /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core.
+No breakpoints or watchpoints.
+The filename in which to record the command history is "/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/./.gdb_history".
+The size of the command history is 256.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No symbol table is loaded.  Use the "file" command.
+The program being debugged is not being run.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No breakpoints or watchpoints.
+No current source file.
+No breakpoints or watchpoints.
+There are no auto-display expressions now.
+No current source file.
+The program being debugged is not being run.
+Detach a process or file previously attached.
+If a process, it is no longer traced, and it continues its execution.  If
+you were debugging a file, the file is closed and gdb no longer accesses it.
+
+List of detach subcommands:
+
+detach inferiors -- Detach from inferior ID (or list of IDS).
+
+Type "help detach" followed by detach subcommand name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Type "apropos -v word" for full documentation of commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+run, r
+Start debugged program.
+You may specify arguments to give it.
+Args may include "*", or "[...]"; they are expanded using the
+shell that will start the program (specified by the "$SHELL" environment
+variable).  Input and output redirection with ">", "<", or ">>"
+are also allowed.
+
+With no arguments, uses arguments last specified (with "run" or 
+"set args").  To cancel previous arguments and run with no arguments,
+use "set args" without arguments.
+
+To start the inferior without using a shell, use "set startup-with-shell off".
+step, s
+Step program until it reaches a different source line.
+Usage: step [N]
+Argument N means step N times (or till program stops for another reason).
+stepi, si
+Step one instruction exactly.
+Usage: stepi [N]
+Argument N means step N times (or till program stops for another reason).
+next, n
+Step program, proceeding through subroutine calls.
+Usage: next [N]
+Unlike "step", if the current source line calls a subroutine,
+this command does not enter the subroutine, but instead steps over
+the call, in effect treating it as a single source line.
+nexti, ni
+Step one instruction, but proceed through subroutine calls.
+Usage: nexti [N]
+Argument N means step N times (or till program stops for another reason).
+until, u
+Execute until past the current line or past a LOCATION.
+Execute until the program reaches a source line greater than the current
+or a specified location (same args as break command) within the current frame.
+finish, fin
+Execute until selected stack frame returns.
+Usage: finish
+Upon return, the value returned is printed and put in the value history.
+continue, fg, c
+Continue program being debugged, after signal or breakpoint.
+Usage: continue [N]
+If proceeding from breakpoint, a number N may be used as an argument,
+which means to set the ignore count of that breakpoint to N - 1 (so that
+the breakpoint won't break until the Nth time it is reached).
+
+If non-stop mode is enabled, continue only the current thread,
+otherwise all the threads in the program are continued.  To 
+continue all stopped threads in non-stop mode, use the -a option.
+Specifying -a and an ignore count simultaneously is an error.
+Continue program with the specified signal.
+Usage: signal SIGNAL
+The SIGNAL argument is processed the same as the handle command.
+
+An argument of "0" means continue the program without sending it a signal.
+This is useful in cases where the program stopped because of a signal,
+and you want to resume the program while discarding the signal.
+
+In a multi-threaded program the signal is delivered to, or discarded from,
+the current thread only.
+Kill execution of program being debugged.
+
+List of kill subcommands:
+
+kill inferiors -- Kill inferior ID (or list of IDs).
+
+Type "help kill" followed by kill subcommand name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Type "apropos -v word" for full documentation of commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+Select and print stack frame that called this one.
+An argument says how many frames up to go.
+down, dow, do
+Select and print stack frame called by this one.
+An argument says how many frames down to go.
+The program being debugged is not being run.
+Reading symbols from /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/build/Micrium-uC-Eval-STM32F107.elf...
+No line number information available.
+62	/* USER CODE BEGIN PFP */
+63	
+64	/* USER CODE END PFP */
+65	
+66	/* Private user code ---------------------------------------------------------*/
+67	/* USER CODE BEGIN 0 */
+68	
+69	/* USER CODE END 0 */
+70	
+71	/**
+Line 62 of "Src/main.c" is at address 0x800077c <main> but contains no code.
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:62:1982:beg:0x800077c
+No breakpoints or watchpoints.
+There are no auto-display expressions now.
+   0x800077c <main>:	push	{r3, lr}
+   0x800087c <HAL_ETH_MspInit+88>:	lsls	r0, r2, #8
+Dump of assembler code for function main:
+   0x0800077c <+0>:	push	{r3, lr}
+   0x0800077e <+2>:	bl	0x8000e60 <HAL_Init>
+   0x08000782 <+6>:	bl	0x800070c <SystemClock_Config>
+   0x08000786 <+10>:	bl	0x8000538 <MX_GPIO_Init>
+   0x0800078a <+14>:	bl	0x80006bc <MX_ETH_Init>
+   0x0800078e <+18>:	bl	0x80031a4 <osKernelInitialize>
+   0x08000792 <+22>:	ldr	r2, [pc, #20]	; (0x80007a8 <main+44>)
+   0x08000794 <+24>:	movs	r1, #0
+   0x08000796 <+26>:	ldr	r0, [pc, #20]	; (0x80007ac <main+48>)
+   0x08000798 <+28>:	bl	0x8003234 <osThreadNew>
+   0x0800079c <+32>:	ldr	r3, [pc, #16]	; (0x80007b0 <main+52>)
+   0x0800079e <+34>:	str	r0, [r3, #0]
+   0x080007a0 <+36>:	bl	0x80031e8 <osKernelStart>
+   0x080007a4 <+40>:	b.n	0x80007a4 <main+40>
+   0x080007a6 <+42>:	nop
+   0x080007a8 <+44>:	subs	r1, #136	; 0x88
+   0x080007aa <+46>:	lsrs	r0, r0, #32
+   0x080007ac <+48>:	lsls	r5, r2, #26
+   0x080007ae <+50>:	lsrs	r0, r0, #32
+   0x080007b0 <+52>:	movs	r4, r6
+   0x080007b2 <+54>:	movs	r0, #0
+End of assembler dump.
+gdbJlinkGo
+gdbStJlink
+gdbStJlink
+User-defined commands.
+The commands in this class are those defined by the user.
+Use the "define" command to define a command.
+
+List of commands:
+
+downbp -- Save the historical work breakpoint
+gdbJlinkGo -- User-defined.
+gdbStJlink -- User-defined.
+loadbp -- Load the historical work breakpoint
+plot1d -- User-defined.
+plot1d_opt -- User-defined.
+plot1d_opt_range -- User-defined.
+printqstring -- User-defined.
+qbp -- Exit and save the breakpoint
+
+Type "help" followed by command name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Type "apropos -v word" for full documentation of commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+User command "downbp":
+  save breakpoints ./.gdb_bp
+
+User command "gdbJlinkGo":
+  target remote 127.0.0.1:2331
+  load
+  monitor reset 0
+  b main
+  c
+
+User command "gdbStJlink":
+  shell gnome-terminal -- bash -c "JLinkGDBServer -if SWD"#打开新终端运行
+
+User command "loadbp":
+  source ./.gdb_bp
+
+User command "plot1d":
+  plot1d_opt_range $arg0 "" "[*:*]"
+
+User command "plot1d_opt":
+  plot1d_opt_range $arg0 $arg1 "[*:*]"
+
+User command "plot1d_opt_range":
+  shell rm -f __plot1d.dump __plot1d.dat __plot1d.gp
+  set logging file __plot1d.dump
+  set logging on
+  output $arg0
+  set logging off
+  shell awk '{printf("%s", $0)}' < __plot1d.dump |     sed 's/^{\(.*\)}$/\1/;s/, */\n/g' > __plot1d.dat
+  shell echo "set yrange $arg2; plot '__plot1d.dat' $arg1 title '$arg0';     pause -1 \"Press enter to continue\"" > __plot1d.gp
+  shell gnuplot __plot1d.gp
+  shell rm -f __plot1d.dump __plot1d.dat __plot1d.gp
+
+User command "printqstring":
+  printf "(QString)0x%x (length=%i): \"",&$arg0,$arg0.d->size
+  set $i=0
+  while $i < $arg0.d->size
+    set $c=$arg0.d->data()[$i++]
+    if $c < 32 || $c > 127
+      printf "\\u0x%04x", $c
+    else
+      printf "%c", (char)$c
+    end
+  end
+  printf "\"\n"
+
+User command "qbp":
+  save breakpoints ./.gdb_bp
+  quit
+
+No breakpoints or watchpoints.
+Current source file is Src/main.c
+Compilation directory is /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core
+Located in /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c
+Contains 403 lines.
+Source language is c.
+Producer is GNU C17 10.3.1 20210621 (release) -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -march=armv7-m -g -gdwarf-2 -Og -fdata-sections -ffunction-sections.
+Compiled with DWARF 2 debugging format.
+Does not include preprocessor macro info.
+gdbJlinkGo
+0x0800bf98 in ?? ()
+Loading section .isr_vector, size 0x1e4 lma 0x8000000
+Loading section .text, size 0x377c lma 0x80001f0
+Loading section .rodata, size 0x84 lma 0x800396c
+Loading section .ARM, size 0x8 lma 0x80039f0
+Loading section .init_array, size 0x4 lma 0x80039f8
+Loading section .fini_array, size 0x4 lma 0x80039fc
+Loading section .data, size 0x10 lma 0x8003a00
+Start address 0x08003894, load size 14852
+Transfer rate: 4834 KB/sec, 2121 bytes/write.
+Resets core & peripherals via SYSRESETREQ & VECTRESET bit.
+Breakpoint 1 at 0x800077c: file Src/main.c, line 76.
+
+Breakpoint 1, main () at Src/main.c:76
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:76:2258:beg:0x800077c
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800077c in main at Src/main.c:76
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:84:2485:beg:0x800077e
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800077c in main at Src/main.c:76
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:91:2600:beg:0x8000782
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800077c in main at Src/main.c:76
+	breakpoint already hit 1 time
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+No line number information available.
+No symbol table is loaded.  Use the "file" command.
+No line number information available.
+4711The current source language is "auto; currently c".
+GNU gdb (GNU Arm Embedded Toolchain 10.3-2021.07) 10.2.90.20210621-git
+Copyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "--host=x86_64-linux-gnu --target=arm-none-eabi".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+Working directory /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core.
+No breakpoints or watchpoints.
+The filename in which to record the command history is "/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/./.gdb_history".
+The size of the command history is 256.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No symbol table is loaded.  Use the "file" command.
+The program being debugged is not being run.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No current source file.
+No symbol table is loaded.  Use the "file" command.
+No breakpoints or watchpoints.
+No current source file.
+No breakpoints or watchpoints.
+There are no auto-display expressions now.
+No current source file.
+The program being debugged is not being run.
+Detach a process or file previously attached.
+If a process, it is no longer traced, and it continues its execution.  If
+you were debugging a file, the file is closed and gdb no longer accesses it.
+
+List of detach subcommands:
+
+detach inferiors -- Detach from inferior ID (or list of IDS).
+
+Type "help detach" followed by detach subcommand name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Type "apropos -v word" for full documentation of commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+run, r
+Start debugged program.
+You may specify arguments to give it.
+Args may include "*", or "[...]"; they are expanded using the
+shell that will start the program (specified by the "$SHELL" environment
+variable).  Input and output redirection with ">", "<", or ">>"
+are also allowed.
+
+With no arguments, uses arguments last specified (with "run" or 
+"set args").  To cancel previous arguments and run with no arguments,
+use "set args" without arguments.
+
+To start the inferior without using a shell, use "set startup-with-shell off".
+step, s
+Step program until it reaches a different source line.
+Usage: step [N]
+Argument N means step N times (or till program stops for another reason).
+stepi, si
+Step one instruction exactly.
+Usage: stepi [N]
+Argument N means step N times (or till program stops for another reason).
+next, n
+Step program, proceeding through subroutine calls.
+Usage: next [N]
+Unlike "step", if the current source line calls a subroutine,
+this command does not enter the subroutine, but instead steps over
+the call, in effect treating it as a single source line.
+nexti, ni
+Step one instruction, but proceed through subroutine calls.
+Usage: nexti [N]
+Argument N means step N times (or till program stops for another reason).
+until, u
+Execute until past the current line or past a LOCATION.
+Execute until the program reaches a source line greater than the current
+or a specified location (same args as break command) within the current frame.
+finish, fin
+Execute until selected stack frame returns.
+Usage: finish
+Upon return, the value returned is printed and put in the value history.
+continue, fg, c
+Continue program being debugged, after signal or breakpoint.
+Usage: continue [N]
+If proceeding from breakpoint, a number N may be used as an argument,
+which means to set the ignore count of that breakpoint to N - 1 (so that
+the breakpoint won't break until the Nth time it is reached).
+
+If non-stop mode is enabled, continue only the current thread,
+otherwise all the threads in the program are continued.  To 
+continue all stopped threads in non-stop mode, use the -a option.
+Specifying -a and an ignore count simultaneously is an error.
+Continue program with the specified signal.
+Usage: signal SIGNAL
+The SIGNAL argument is processed the same as the handle command.
+
+An argument of "0" means continue the program without sending it a signal.
+This is useful in cases where the program stopped because of a signal,
+and you want to resume the program while discarding the signal.
+
+In a multi-threaded program the signal is delivered to, or discarded from,
+the current thread only.
+Kill execution of program being debugged.
+
+List of kill subcommands:
+
+kill inferiors -- Kill inferior ID (or list of IDs).
+
+Type "help kill" followed by kill subcommand name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Type "apropos -v word" for full documentation of commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+Select and print stack frame that called this one.
+An argument says how many frames up to go.
+down, dow, do
+Select and print stack frame called by this one.
+An argument says how many frames down to go.
+The program being debugged is not being run.
+Reading symbols from /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/build/Micrium-uC-Eval-STM32F107.elf...
+No line number information available.
+62	/* USER CODE BEGIN PFP */
+63	
+64	/* USER CODE END PFP */
+65	
+66	/* Private user code ---------------------------------------------------------*/
+67	/* USER CODE BEGIN 0 */
+68	
+69	/* USER CODE END 0 */
+70	
+71	/**
+Line 62 of "Src/main.c" is at address 0x800078c <main> but contains no code.
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:62:1982:beg:0x800078c
+No breakpoints or watchpoints.
+There are no auto-display expressions now.
+   0x800078c <main>:	push	{r3, lr}
+   0x800088c <HAL_ETH_MspInit+88>:	lsls	r0, r2, #8
+Dump of assembler code for function main:
+   0x0800078c <+0>:	push	{r3, lr}
+   0x0800078e <+2>:	bl	0x8000e70 <HAL_Init>
+   0x08000792 <+6>:	bl	0x800070c <SystemClock_Config>
+   0x08000796 <+10>:	bl	0x8000538 <MX_GPIO_Init>
+   0x0800079a <+14>:	bl	0x80006bc <MX_ETH_Init>
+   0x0800079e <+18>:	bl	0x8003184 <osKernelInitialize>
+   0x080007a2 <+22>:	ldr	r2, [pc, #20]	; (0x80007b8 <main+44>)
+   0x080007a4 <+24>:	movs	r1, #0
+   0x080007a6 <+26>:	ldr	r0, [pc, #20]	; (0x80007bc <main+48>)
+   0x080007a8 <+28>:	bl	0x8003214 <osThreadNew>
+   0x080007ac <+32>:	ldr	r3, [pc, #16]	; (0x80007c0 <main+52>)
+   0x080007ae <+34>:	str	r0, [r3, #0]
+   0x080007b0 <+36>:	bl	0x80031c8 <osKernelStart>
+   0x080007b4 <+40>:	b.n	0x80007b4 <main+40>
+   0x080007b6 <+42>:	nop
+   0x080007b8 <+44>:	subs	r1, #104	; 0x68
+   0x080007ba <+46>:	lsrs	r0, r0, #32
+   0x080007bc <+48>:	lsls	r5, r2, #26
+   0x080007be <+50>:	lsrs	r0, r0, #32
+   0x080007c0 <+52>:	movs	r4, r6
+   0x080007c2 <+54>:	movs	r0, #0
+End of assembler dump.
+gdbStJlink
+User-defined commands.
+The commands in this class are those defined by the user.
+Use the "define" command to define a command.
+
+List of commands:
+
+downbp -- Save the historical work breakpoint
+gdbJlinkGo -- User-defined.
+gdbStJlink -- User-defined.
+loadbp -- Load the historical work breakpoint
+plot1d -- User-defined.
+plot1d_opt -- User-defined.
+plot1d_opt_range -- User-defined.
+printqstring -- User-defined.
+qbp -- Exit and save the breakpoint
+
+Type "help" followed by command name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Type "apropos -v word" for full documentation of commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+User command "downbp":
+  save breakpoints ./.gdb_bp
+
+User command "gdbJlinkGo":
+  target remote 127.0.0.1:2331
+  load
+  monitor reset 0
+  b main
+  c
+
+User command "gdbStJlink":
+  shell gnome-terminal -- bash -c "JLinkGDBServer -if SWD"#打开新终端运行
+
+User command "loadbp":
+  source ./.gdb_bp
+
+User command "plot1d":
+  plot1d_opt_range $arg0 "" "[*:*]"
+
+User command "plot1d_opt":
+  plot1d_opt_range $arg0 $arg1 "[*:*]"
+
+User command "plot1d_opt_range":
+  shell rm -f __plot1d.dump __plot1d.dat __plot1d.gp
+  set logging file __plot1d.dump
+  set logging on
+  output $arg0
+  set logging off
+  shell awk '{printf("%s", $0)}' < __plot1d.dump |     sed 's/^{\(.*\)}$/\1/;s/, */\n/g' > __plot1d.dat
+  shell echo "set yrange $arg2; plot '__plot1d.dat' $arg1 title '$arg0';     pause -1 \"Press enter to continue\"" > __plot1d.gp
+  shell gnuplot __plot1d.gp
+  shell rm -f __plot1d.dump __plot1d.dat __plot1d.gp
+
+User command "printqstring":
+  printf "(QString)0x%x (length=%i): \"",&$arg0,$arg0.d->size
+  set $i=0
+  while $i < $arg0.d->size
+    set $c=$arg0.d->data()[$i++]
+    if $c < 32 || $c > 127
+      printf "\\u0x%04x", $c
+    else
+      printf "%c", (char)$c
+    end
+  end
+  printf "\"\n"
+
+User command "qbp":
+  save breakpoints ./.gdb_bp
+  quit
+
+No breakpoints or watchpoints.
+Current source file is Src/main.c
+Compilation directory is /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core
+Located in /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c
+Contains 405 lines.
+Source language is c.
+Producer is GNU C17 10.3.1 20210621 (release) -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -march=armv7-m -g -gdwarf-2 -Og -fdata-sections -ffunction-sections.
+Compiled with DWARF 2 debugging format.
+Does not include preprocessor macro info.
+gdbJlinkGo
+Error_Handler () at Src/main.c:383
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:383:11282:beg:0x80006ba
+Loading section .isr_vector, size 0x1e4 lma 0x8000000
+Loading section .text, size 0x375c lma 0x80001f0
+Loading section .rodata, size 0x84 lma 0x800394c
+Loading section .ARM, size 0x8 lma 0x80039d0
+Loading section .init_array, size 0x4 lma 0x80039d8
+Loading section .fini_array, size 0x4 lma 0x80039dc
+Loading section .data, size 0x10 lma 0x80039e0
+Start address 0x08003874, load size 14820
+Transfer rate: 1809 KB/sec, 2117 bytes/write.
+Resets core & peripherals via SYSRESETREQ & VECTRESET bit.
+Breakpoint 1 at 0x800078c: file Src/main.c, line 76.
+
+Breakpoint 1, main () at Src/main.c:76
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:76:2258:beg:0x800078c
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800078c in main at Src/main.c:76
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:84:2485:beg:0x800078e
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800078c in main at Src/main.c:76
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:91:2600:beg:0x8000792
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800078c in main at Src/main.c:76
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:98:2742:beg:0x8000796
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800078c in main at Src/main.c:76
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:99:2761:beg:0x800079a
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800078c in main at Src/main.c:76
+	breakpoint already hit 1 time
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+Error_Handler () at Src/main.c:383
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:383:11282:beg:0x80006ba
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800078c in main at Src/main.c:76
+	breakpoint already hit 1 time
+Symbols from "/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/build/Micrium-uC-Eval-STM32F107.elf".
+Remote serial target in gdb-specific protocol:
+Debugging a target over a serial line.
+	While running this, GDB does not access memory from...
+Local exec file:
+	`/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/build/Micrium-uC-Eval-STM32F107.elf', file type elf32-littlearm.
+	Entry point: 0x8003874
+	0x08000000 - 0x080001e4 is .isr_vector
+	0x080001f0 - 0x0800394c is .text
+	0x0800394c - 0x080039d0 is .rodata
+	0x080039d0 - 0x080039d8 is .ARM
+	0x080039d8 - 0x080039dc is .init_array
+	0x080039dc - 0x080039e0 is .fini_array
+	0x20000000 - 0x20000010 is .data
+	0x20000010 - 0x20001e14 is .bss
+	0x20001e14 - 0x20002418 is ._user_heap_stack
+Debugging a target over a serial line.
+Program stopped at 0x80006ba.
+It stopped with signal SIGTRAP, Trace/breakpoint trap.
+Type "info stack" or "info registers" for more information.
+Reading symbols from /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/build/Micrium-uC-Eval-STM32F107.elf...
+No line number information available.
+59	static void MX_ETH_Init(void);
+60	void StartDefaultTask(void *argument);
+61	
+62	/* USER CODE BEGIN PFP */
+63	
+64	/* USER CODE END PFP */
+65	
+66	/* Private user code ---------------------------------------------------------*/
+67	/* USER CODE BEGIN 0 */
+68	
+Line 59 of "Src/main.c" is at address 0x800073c <main> but contains no code.
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:59:1908:beg:0x800073c
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+There are no auto-display expressions now.
+   0x800073c <main>:	str	r3, [sp, #60]	; 0x3c
+   0x800083c <HAL_InitTick+92>:	str	r3, [sp, #28]
+Dump of assembler code for function main:
+   0x0800073c <+0>:	str	r3, [sp, #60]	; 0x3c
+   0x0800073e <+2>:	mov.w	r3, #1835008	; 0x1c0000
+   0x08000742 <+6>:	str	r3, [sp, #64]	; 0x40
+   0x08000744 <+8>:	str	r2, [sp, #68]	; 0x44
+   0x08000746 <+10>:	mov.w	r3, #1536	; 0x600
+   0x0800074a <+14>:	str	r3, [sp, #72]	; 0x48
+   0x0800074c <+16>:	movs	r3, #64	; 0x40
+   0x0800074e <+18>:	str	r3, [sp, #76]	; 0x4c
+   0x08000750 <+20>:	add	r0, sp, #24
+   0x08000752 <+22>:	bl	0x8000f0c <HAL_RCC_ClockConfig+136>
+   0x08000756 <+26>:	cbnz	r0, 0x8000780 <TIM5_IRQHandler+4>
+   0x08000758 <+28>:	movs	r3, #15
+   0x0800075a <+30>:	str	r3, [sp, #4]
+   0x0800075c <+32>:	movs	r1, #2
+   0x0800075e <+34>:	str	r1, [sp, #8]
+   0x08000760 <+36>:	movs	r3, #0
+   0x08000762 <+38>:	str	r3, [sp, #12]
+   0x08000764 <+40>:	mov.w	r2, #1024	; 0x400
+   0x08000768 <+44>:	str	r2, [sp, #16]
+   0x0800076a <+46>:	str	r3, [sp, #20]
+   0x0800076c <+48>:	add	r0, sp, #4
+   0x0800076e <+50>:	bl	0x80014c0 <HAL_TIM_IRQHandler+268>
+End of assembler dump.
+Current source file is Src/main.c
+Compilation directory is /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core
+Located in /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c
+Contains 405 lines.
+Source language is c.
+Producer is GNU C17 10.3.1 20210621 (release) -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -march=armv7-m -g -gdwarf-2 -Og -fdata-sections -ffunction-sections.
+Compiled with DWARF 2 debugging format.
+Does not include preprocessor macro info.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+Error_Handler () at Src/main.c:332
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:332:10001:beg:0x80006ba
+Loading section .isr_vector, size 0x1e4 lma 0x8000000
+Loading section .text, size 0x311c lma 0x80001f0
+Loading section .rodata, size 0x84 lma 0x800330c
+Loading section .ARM, size 0x8 lma 0x8003390
+Loading section .init_array, size 0x4 lma 0x8003398
+Loading section .fini_array, size 0x4 lma 0x800339c
+Loading section .data, size 0x10 lma 0x80033a0
+Start address 0x08003234, load size 13220
+Transfer rate: 4303 KB/sec, 1888 bytes/write.
+Resets core & peripherals via SYSRESETREQ & VECTRESET bit.
+Breakpoint 2 at 0x800073c: file Src/main.c, line 73.
+
+Breakpoint 1, main () at Src/main.c:73
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:73:2219:beg:0x800073c
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:81:2317:beg:0x800073e
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:88:2534:beg:0x8000742
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:95:2662:beg:0x8000746
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:101:2806:beg:0x800074a
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:121:3272:beg:0x800074e
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:132:3598:beg:0x800075c
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+prvIdleTask (pvParameters=<optimized out>) at Middlewares/Third_Party/FreeRTOS/Source/tasks.c:3258
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/tasks.c:3258:109889:beg:0x8001faa
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+Current source file is Middlewares/Third_Party/FreeRTOS/Source/tasks.c
+Compilation directory is /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core
+Located in /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/tasks.c
+Contains 5039 lines.
+Source language is c.
+Producer is GNU C17 10.3.1 20210621 (release) -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -march=armv7-m -g -gdwarf-2 -Og -fdata-sections -ffunction-sections.
+Compiled with DWARF 2 debugging format.
+Does not include preprocessor macro info.
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/tasks.c:3235:108919:beg:0x8001fa6
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+=> 0x8001fa6 <prvIdleTask+2>:	bl	0x8001f58 <prvCheckTasksWaitingTermination>
+   0x80020a4 <xTaskCreateStatic+92>:	add	r4, sp, #20
+Dump of assembler code for function prvIdleTask:
+   0x08001fa4 <+0>:	push	{r3, lr}
+=> 0x08001fa6 <+2>:	bl	0x8001f58 <prvCheckTasksWaitingTermination>
+   0x08001faa <+6>:	ldr	r3, [pc, #28]	; (0x8001fc8 <prvIdleTask+36>)
+   0x08001fac <+8>:	ldr	r3, [r3, #0]
+   0x08001fae <+10>:	cmp	r3, #1
+   0x08001fb0 <+12>:	bls.n	0x8001fa6 <prvIdleTask+2>
+   0x08001fb2 <+14>:	mov.w	r3, #3758153728	; 0xe000e000
+   0x08001fb6 <+18>:	mov.w	r2, #268435456	; 0x10000000
+   0x08001fba <+22>:	str.w	r2, [r3, #3332]	; 0xd04
+   0x08001fbe <+26>:	dsb	sy
+   0x08001fc2 <+30>:	isb	sy
+   0x08001fc6 <+34>:	b.n	0x8001fa6 <prvIdleTask+2>
+   0x08001fc8 <+36>:	lsls	r0, r1, #3
+   0x08001fca <+38>:	movs	r0, #0
+End of assembler dump.
+Source files for which symbols have been read in:
+
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/machine/_default_types.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/sys/_stdint.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Inc/FreeRTOSConfig.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/task.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/tasks.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/list.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/string.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/cmsis_gcc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/<built-in>, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/core_cm3.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f107xc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/startup_stm32f107xc.s, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_it.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_timebase_tim.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c
+
+Source files for which symbols will be read in on demand:
+
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/timers.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/queue.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/list.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/system_stm32f1xx.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/cmsis_gcc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/core_cm3.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_msp.c
+Symbols from "/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/build/Micrium-uC-Eval-STM32F107.elf".
+Remote serial target in gdb-specific protocol:
+Debugging a target over a serial line.
+	While running this, GDB does not access memory from...
+Local exec file:
+	`/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/build/Micrium-uC-Eval-STM32F107.elf', file type elf32-littlearm.
+	Entry point: 0x8003234
+	0x08000000 - 0x080001e4 is .isr_vector
+	0x080001f0 - 0x0800330c is .text
+	0x0800330c - 0x08003390 is .rodata
+	0x08003390 - 0x08003398 is .ARM
+	0x08003398 - 0x0800339c is .init_array
+	0x0800339c - 0x080033a0 is .fini_array
+	0x20000000 - 0x20000010 is .data
+	0x20000010 - 0x20001dc4 is .bss
+	0x20001dc4 - 0x200023c8 is ._user_heap_stack
+Debugging a target over a serial line.
+Program stopped at 0x8001fa6.
+It stopped after being stepped.
+Type "info stack" or "info registers" for more information.
+Source files for which symbols have been read in:
+
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/machine/_default_types.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/sys/_stdint.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Inc/FreeRTOSConfig.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/task.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/tasks.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/list.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/string.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/cmsis_gcc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/<built-in>, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/core_cm3.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f107xc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/startup_stm32f107xc.s, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_it.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_timebase_tim.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c
+
+Source files for which symbols will be read in on demand:
+
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/timers.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/queue.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/list.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/system_stm32f1xx.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/cmsis_gcc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/core_cm3.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_msp.c
+Source files for which symbols have been read in:
+
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/machine/_default_types.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/sys/_stdint.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Inc/FreeRTOSConfig.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/task.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/tasks.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/list.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/string.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/cmsis_gcc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/<built-in>, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/core_cm3.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f107xc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/startup_stm32f107xc.s, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_it.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_timebase_tim.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c
+
+Source files for which symbols will be read in on demand:
+
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/timers.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/queue.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/list.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/system_stm32f1xx.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/cmsis_gcc.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/core_cm3.h, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c, /home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_msp.c
+Line 1 of "Src/main.c" is at address 0x800073c <main> but contains no code.
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:1:0:beg:0x800073c
+Attempt to use a type name as an expression
+No symbol "USER" in current context.
+{osStatus_t (uint32_t)} 0x8002cc4 <osDelay>Breakpoint 3 at 0x8000696: file Src/main.c, line 297.
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+3       breakpoint     keep y   0x08000696 in StartDefaultTask at Src/main.c:297
+No symbol "Callback" in current context.
+Continuing.
+
+Breakpoint 3, StartDefaultTask (argument=<optimized out>) at Src/main.c:297
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:297:8791:beg:0x8000696
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+3       breakpoint     keep y   0x08000696 in StartDefaultTask at Src/main.c:297
+	breakpoint already hit 1 time
+=> 0x8000696 <StartDefaultTask+2>:	movs	r0, #1
+   0x8000794 <HAL_MspInit+8>:	orr.w	r2, r2, #1
+Dump of assembler code for function StartDefaultTask:
+   0x08000694 <+0>:	push	{r3, lr}
+=> 0x08000696 <+2>:	movs	r0, #1
+   0x08000698 <+4>:	bl	0x8002cc4 <osDelay>
+   0x0800069c <+8>:	b.n	0x8000696 <StartDefaultTask+2>
+End of assembler dump.
+Continuing.
+
+Breakpoint 3, StartDefaultTask (argument=<optimized out>) at Src/main.c:297
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:297:8791:beg:0x8000696
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+3       breakpoint     keep y   0x08000696 in StartDefaultTask at Src/main.c:297
+	breakpoint already hit 2 times
+=> 0x8000696 <StartDefaultTask+2>:	movs	r0, #1
+   0x8000794 <HAL_MspInit+8>:	orr.w	r2, r2, #1
+Dump of assembler code for function StartDefaultTask:
+   0x08000694 <+0>:	push	{r3, lr}
+=> 0x08000696 <+2>:	movs	r0, #1
+   0x08000698 <+4>:	bl	0x8002cc4 <osDelay>
+   0x0800069c <+8>:	b.n	0x8000696 <StartDefaultTask+2>
+End of assembler dump.
+Continuing.
+
+Breakpoint 3, StartDefaultTask (argument=<optimized out>) at Src/main.c:297
+/home/cyl/workspace/mcubot/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:297:8791:beg:0x8000696
+Num     Type           Disp Enb Address    What
+1       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 2 times
+2       breakpoint     keep y   0x0800073c in main at Src/main.c:73
+	breakpoint already hit 1 time
+3       breakpoint     keep y   0x08000696 in StartDefaultTask at Src/main.c:297
+	breakpoint already hit 3 times
+=> 0x8000696 <StartDefaultTask+2>:	movs	r0, #1
+   0x8000794 <HAL_MspInit+8>:	orr.w	r2, r2, #1
+Dump of assembler code for function StartDefaultTask:
+   0x08000694 <+0>:	push	{r3, lr}
+=> 0x08000696 <+2>:	movs	r0, #1
+   0x08000698 <+4>:	bl	0x8002cc4 <osDelay>
+   0x0800069c <+8>:	b.n	0x8000696 <StartDefaultTask+2>
+End of assembler dump.

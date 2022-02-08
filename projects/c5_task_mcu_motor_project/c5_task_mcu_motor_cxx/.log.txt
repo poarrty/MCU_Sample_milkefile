@@ -1,0 +1,214 @@
+=cmd-param-changed,param="print array-indexes",value="on"
+=cmd-param-changed,param="print pretty",value="on"
+~"Reading symbols from /home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/build/c5_task_mcu_motor.elf...\n"
+(gdb) 
+1^done
+(gdb) 
+2^done
+(gdb) 
+=thread-group-started,id="i1",pid="42000"
+=thread-created,id="1",group-id="i1"
+~"0x00000000 in ?? ()\n"
+*stopped,frame={addr="0x00000000",func="??",args=[],arch="armv7"},thread-id="1",stopped-threads="all"
+3^connected
+(gdb) 
+@"target halted due to debug-request, current mode: Thread \n"
+@"xPSR: 0x01000000 pc: 0x08021abc msp: 0x20018000\n"
+4^done
+(gdb) 
+5+download,{section=".isr_vector",section-size="484",total-size="1954351"}
+5+download,{section=".isr_vector",section-sent="484",section-size="484",total-sent="484",total-size="1954351"}
+5+download,{section=".text",section-size="162092",total-size="1954351"}
+5+download,{section=".rodata",section-size="26536",total-size="1954351"}
+5+download,{section="FalPartTable",section-size="320",total-size="1954351"}
+5+download,{section=".ARM",section-size="8",total-size="1954351"}
+5+download,{section=".init_array",section-size="4",total-size="1954351"}
+5+download,{section=".fini_array",section-size="4",total-size="1954351"}
+5+download,{section=".data",section-size="1888",total-size="1954351"}
+5^done,address="0x08021abc",load-size="191336",transfer-rate="100520",write-rate="10070"
+(gdb) 
+@"target halted due to debug-request, current mode: Thread \n"
+@"xPSR: 0x01000000 pc: 0x08021abc msp: 0x20018000\n"
+6^done
+(gdb) 
+7^done
+(gdb) 
+~"Note: automatically using hardware breakpoints for read-only addresses.\n"
+8^done,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0800166a",func="main",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",line="77",thread-groups=["i1"],times="0",original-location="-function main"}
+(gdb) 
+9^running
+*running,thread-id="all"
+(gdb) 
+=breakpoint-modified,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x0800166a",func="main",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",line="77",thread-groups=["i1"],times="1",original-location="-function main"}
+~"\n"
+~"Temporary breakpoint 1, main () at /home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c:77\n"
+~"77\t{\n"
+*stopped,reason="breakpoint-hit",disp="del",bkptno="1",frame={addr="0x0800166a",func="main",args=[],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",line="77",arch="armv7"},thread-id="1",stopped-threads="all"
+=breakpoint-deleted,id="1"
+10^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+11^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x0800166a",func="main",args=[],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",line="77",arch="armv7"},state="stopped"}]
+(gdb) 
+12^done,register-names=["r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","sp","lr","pc","","","","","","","","","","xPSR","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","d0","d1","d2","d3","d4","d5","d6","d7","d8","d9","d10","d11","d12","d13","d14","d15","","","","","","","","","","","","","","","","","fpscr","msp","psp","primask","basepri","faultmask","control","s0","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10","s11","s12","s13","s14","s15","s16","s17","s18","s19","s20","s21","s22","s23","s24","s25","s26","s27","s28","s29","s30","s31"]
+(gdb) 
+13^done,depth="1"
+(gdb) 
+14^done,stack=[frame={level="0",addr="0x0800166a",func="main",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",line="77",arch="armv7"}]
+(gdb) 
+15^done,register-values=[{number="0",value="536870912"},{number="1",value="536872800"},{number="2",value="536946148"},{number="3",value="134218261"},{number="4",value="536946148"},{number="5",value="536872612"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="536968979"},{number="13",value="0x20018000"},{number="14",value="134355695"},{number="15",value="0x800166a <main>"},{number="25",value="1627389952"},{number="58",value="4.441851962828683e-155"},{number="59",value="-2.4604375534892922e+191"},{number="60",value="-4.8957897977394473e+156"},{number="61",value="-2.707060175004581e+98"},{number="62",value="-2.8331322267851595e+138"},{number="63",value="-1.2802017084720077e-19"},{number="64",value="-7.7243862884912029e+129"},{number="65",value="-3.073098340021648e+17"},{number="66",value="4.3533942188203666e+31"},{number="67",value="-3.5242978078970502e-245"},{number="68",value="3.4204568000236007e+189"},{number="69",value="-2.7710043476032329e+218"},{number="70",value="-1.5661265541174221e+196"},{number="71",value="8.3451482342889592e+169"},{number="72",value="1.3034744170016879e+30"},{number="73",value="2.0681109403422869e+186"},{number="90",value="0"},{number="91",value="0x20018000"},{number="92",value="0x20007d00 <ucHeap+22372>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"},{number="97",value="4.13842268e+10"},{number="98",value="9.61626995e-20"},{number="99",value="-15614.7012"},{number="100",value="-1.62082173e+24"},{number="101",value="-3.459967e-19"},{number="102",value="-7.11414634e+19"},{number="103",value="320501.625"},{number="104",value="-3.84286091e+12"},{number="105",value="7.14208621e-33"},{number="106",value="-3.92831453e+17"},{number="107",value="1.77757559e-20"},{number="108",value="-0.00798904058"},{number="109",value="9.24137567e-34"},{number="110",value="-3.24100444e+16"},{number="111",value="-9.18079699e-14"},{number="112",value="-290.118225"},{number="113",value="2.80681648e-34"},{number="114",value="16533.9023"},{number="115",value="-6.33951048e-35"},{number="116",value="-5.38650256e-31"},{number="117",value="9.18873267e-13"},{number="118",value="9.47146777e+23"},{number="119",value="1.59452946e-29"},{number="120",value="-3.89021615e+27"},{number="121",value="8.27805852e-05"},{number="122",value="-6.45330576e+24"},{number="123",value="9.12503338"},{number="124",value="3.35938133e+21"},{number="125",value="-794.501282"},{number="126",value="11292.9375"},{number="127",value="-5.46286742e-15"},{number="128",value="3.74058176e+23"}]
+(gdb) 
+16^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+17^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x0800166a",func="main",args=[],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",line="77",arch="armv7"},state="stopped"}]
+(gdb) 
+18^done,register-values=[{number="0",value="536870912"},{number="1",value="536872800"},{number="2",value="536946148"},{number="3",value="134218261"},{number="4",value="536946148"},{number="5",value="536872612"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="536968979"},{number="13",value="0x20018000"},{number="14",value="134355695"},{number="15",value="0x800166a <main>"},{number="25",value="1627389952"},{number="58",value="4.441851962828683e-155"},{number="59",value="-2.4604375534892922e+191"},{number="60",value="-4.8957897977394473e+156"},{number="61",value="-2.707060175004581e+98"},{number="62",value="-2.8331322267851595e+138"},{number="63",value="-1.2802017084720077e-19"},{number="64",value="-7.7243862884912029e+129"},{number="65",value="-3.073098340021648e+17"},{number="66",value="4.3533942188203666e+31"},{number="67",value="-3.5242978078970502e-245"},{number="68",value="3.4204568000236007e+189"},{number="69",value="-2.7710043476032329e+218"},{number="70",value="-1.5661265541174221e+196"},{number="71",value="8.3451482342889592e+169"},{number="72",value="1.3034744170016879e+30"},{number="73",value="2.0681109403422869e+186"},{number="90",value="0"},{number="91",value="0x20018000"},{number="92",value="0x20007d00 <ucHeap+22372>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"},{number="97",value="4.13842268e+10"},{number="98",value="9.61626995e-20"},{number="99",value="-15614.7012"},{number="100",value="-1.62082173e+24"},{number="101",value="-3.459967e-19"},{number="102",value="-7.11414634e+19"},{number="103",value="320501.625"},{number="104",value="-3.84286091e+12"},{number="105",value="7.14208621e-33"},{number="106",value="-3.92831453e+17"},{number="107",value="1.77757559e-20"},{number="108",value="-0.00798904058"},{number="109",value="9.24137567e-34"},{number="110",value="-3.24100444e+16"},{number="111",value="-9.18079699e-14"},{number="112",value="-290.118225"},{number="113",value="2.80681648e-34"},{number="114",value="16533.9023"},{number="115",value="-6.33951048e-35"},{number="116",value="-5.38650256e-31"},{number="117",value="9.18873267e-13"},{number="118",value="9.47146777e+23"},{number="119",value="1.59452946e-29"},{number="120",value="-3.89021615e+27"},{number="121",value="8.27805852e-05"},{number="122",value="-6.45330576e+24"},{number="123",value="9.12503338"},{number="124",value="3.35938133e+21"},{number="125",value="-794.501282"},{number="126",value="11292.9375"},{number="127",value="-5.46286742e-15"},{number="128",value="3.74058176e+23"}]
+(gdb) 
+19^done,depth="1"
+(gdb) 
+20^done,depth="1"
+(gdb) 
+21^done,stack=[frame={level="0",addr="0x0800166a",func="main",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",line="77",arch="armv7"}]
+(gdb) 
+22^done,stack=[frame={level="0",addr="0x0800166a",func="main",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/Src/main.c",line="77",arch="armv7"}]
+(gdb) 
+23^done,variables=[]
+(gdb) 
+24^done,variables=[]
+(gdb) 
+25^running
+*running,thread-id="all"
+(gdb) 
+26^done
+(gdb) 
+~"\nProgram"
+~" received signal SIGINT, Interrupt.\n"
+~"0x080068fe in prvCheckTasksWaitingTermination () at /home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../middlewares/FreeRTOS/FreeRTOS/Source/tasks.c:3654\n"
+~"3654\t\t\twhile( uxDeletedTasksWaitingCleanUp > ( UBaseType_t ) 0U )\n"
+*stopped,reason="signal-received",signal-name="SIGINT",signal-meaning="Interrupt",frame={addr="0x080068fe",func="prvCheckTasksWaitingTermination",args=[],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../middlewares/FreeRTOS/FreeRTOS/Source/tasks.c",fullname="/home/cyl/workspace/mcubot/middlewares/FreeRTOS/FreeRTOS/Source/tasks.c",line="3654",arch="armv7"},thread-id="1",stopped-threads="all"
+27^done,bkpt={number="2",type="breakpoint",disp="keep",enabled="y",addr="0x08011ad6",func="pal_ctl_thread",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../pal/pal.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/pal/pal.c",line="357",thread-groups=["i1"],times="0",original-location="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/pal/pal.c:357"}
+(gdb) 
+28^running
+*running,thread-id="all"
+(gdb) 
+=breakpoint-modified,bkpt={number="2",type="breakpoint",disp="keep",enabled="y",addr="0x08011ad6",func="pal_ctl_thread",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../pal/pal.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/pal/pal.c",line="357",thread-groups=["i1"],times="1",original-location="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/pal/pal.c:357"}
+~"\n"
+~"Breakpoint 2, pal_ctl_thread (parameter=<optimized out>) at /home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../pal/pal.c:357\n"
+~"357\t\t\t\tcJSON_AddNumberToObject(root,\"push_rod_dust_box_err\",motor_proxy.motor[1].err_code.error_code);\n"
+*stopped,reason="breakpoint-hit",disp="keep",bkptno="2",frame={addr="0x08011ad6",func="pal_ctl_thread",args=[{name="parameter",value="<optimized out>"}],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../pal/pal.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/pal/pal.c",line="357",arch="armv7"},thread-id="1",stopped-threads="all"
+29^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+30^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08011ad6",func="pal_ctl_thread",args=[{name="parameter",value="<optimized out>"}],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../pal/pal.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/pal/pal.c",line="357",arch="armv7"},state="stopped"}]
+(gdb) 
+31^done,register-values=[{number="0",value="536967496"},{number="1",value="536967496"},{number="2",value="134398746"},{number="3",value="0"},{number="4",value="536871560"},{number="5",value="536967104"},{number="6",value="7"},{number="7",value="536917080"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="-2084569088"},{number="13",value="0x20007d60 <ucHeap+22468>"},{number="14",value="134268189"},{number="15",value="0x8011ad6 <pal_ctl_thread+246>"},{number="25",value="553648128"},{number="58",value="4.441851962828683e-155"},{number="59",value="-2.4604375534892922e+191"},{number="60",value="-4.8957897977394473e+156"},{number="61",value="-2.707060175004581e+98"},{number="62",value="-2.8331322267851595e+138"},{number="63",value="-1.2802017084720077e-19"},{number="64",value="-7.7243862884912029e+129"},{number="65",value="-3.073098340021648e+17"},{number="66",value="4.3533942188203666e+31"},{number="67",value="-3.5242978078970502e-245"},{number="68",value="3.4204568000236007e+189"},{number="69",value="-2.7710043476032329e+218"},{number="70",value="-1.5661265541174221e+196"},{number="71",value="8.3451482342889592e+169"},{number="72",value="1.3034744170016879e+30"},{number="73",value="2.0681109403422869e+186"},{number="90",value="0"},{number="91",value="0x20017fe0"},{number="92",value="0x20007d60 <ucHeap+22468>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="2"},{number="97",value="4.13842268e+10"},{number="98",value="9.61626995e-20"},{number="99",value="-15614.7012"},{number="100",value="-1.62082173e+24"},{number="101",value="-3.459967e-19"},{number="102",value="-7.11414634e+19"},{number="103",value="320501.625"},{number="104",value="-3.84286091e+12"},{number="105",value="7.14208621e-33"},{number="106",value="-3.92831453e+17"},{number="107",value="1.77757559e-20"},{number="108",value="-0.00798904058"},{number="109",value="9.24137567e-34"},{number="110",value="-3.24100444e+16"},{number="111",value="-9.18079699e-14"},{number="112",value="-290.118225"},{number="113",value="2.80681648e-34"},{number="114",value="16533.9023"},{number="115",value="-6.33951048e-35"},{number="116",value="-5.38650256e-31"},{number="117",value="9.18873267e-13"},{number="118",value="9.47146777e+23"},{number="119",value="1.59452946e-29"},{number="120",value="-3.89021615e+27"},{number="121",value="8.27805852e-05"},{number="122",value="-6.45330576e+24"},{number="123",value="9.12503338"},{number="124",value="3.35938133e+21"},{number="125",value="-794.501282"},{number="126",value="11292.9375"},{number="127",value="-5.46286742e-15"},{number="128",value="3.74058176e+23"}]
+(gdb) 
+32^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+33^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08011ad6",func="pal_ctl_thread",args=[{name="parameter",value="<optimized out>"}],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../pal/pal.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/pal/pal.c",line="357",arch="armv7"},state="stopped"}]
+(gdb) 
+34^done,register-values=[{number="0",value="536967496"},{number="1",value="536967496"},{number="2",value="134398746"},{number="3",value="0"},{number="4",value="536871560"},{number="5",value="536967104"},{number="6",value="7"},{number="7",value="536917080"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="-2084569088"},{number="13",value="0x20007d60 <ucHeap+22468>"},{number="14",value="134268189"},{number="15",value="0x8011ad6 <pal_ctl_thread+246>"},{number="25",value="553648128"},{number="58",value="4.441851962828683e-155"},{number="59",value="-2.4604375534892922e+191"},{number="60",value="-4.8957897977394473e+156"},{number="61",value="-2.707060175004581e+98"},{number="62",value="-2.8331322267851595e+138"},{number="63",value="-1.2802017084720077e-19"},{number="64",value="-7.7243862884912029e+129"},{number="65",value="-3.073098340021648e+17"},{number="66",value="4.3533942188203666e+31"},{number="67",value="-3.5242978078970502e-245"},{number="68",value="3.4204568000236007e+189"},{number="69",value="-2.7710043476032329e+218"},{number="70",value="-1.5661265541174221e+196"},{number="71",value="8.3451482342889592e+169"},{number="72",value="1.3034744170016879e+30"},{number="73",value="2.0681109403422869e+186"},{number="90",value="0"},{number="91",value="0x20017fe0"},{number="92",value="0x20007d60 <ucHeap+22468>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="2"},{number="97",value="4.13842268e+10"},{number="98",value="9.61626995e-20"},{number="99",value="-15614.7012"},{number="100",value="-1.62082173e+24"},{number="101",value="-3.459967e-19"},{number="102",value="-7.11414634e+19"},{number="103",value="320501.625"},{number="104",value="-3.84286091e+12"},{number="105",value="7.14208621e-33"},{number="106",value="-3.92831453e+17"},{number="107",value="1.77757559e-20"},{number="108",value="-0.00798904058"},{number="109",value="9.24137567e-34"},{number="110",value="-3.24100444e+16"},{number="111",value="-9.18079699e-14"},{number="112",value="-290.118225"},{number="113",value="2.80681648e-34"},{number="114",value="16533.9023"},{number="115",value="-6.33951048e-35"},{number="116",value="-5.38650256e-31"},{number="117",value="9.18873267e-13"},{number="118",value="9.47146777e+23"},{number="119",value="1.59452946e-29"},{number="120",value="-3.89021615e+27"},{number="121",value="8.27805852e-05"},{number="122",value="-6.45330576e+24"},{number="123",value="9.12503338"},{number="124",value="3.35938133e+21"},{number="125",value="-794.501282"},{number="126",value="11292.9375"},{number="127",value="-5.46286742e-15"},{number="128",value="3.74058176e+23"}]
+(gdb) 
+35^done,depth="2"
+(gdb) 
+36^done,depth="2"
+(gdb) 
+37^done,stack=[frame={level="0",addr="0x08011ad6",func="pal_ctl_thread",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../pal/pal.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/pal/pal.c",line="357",arch="armv7"},frame={level="1",addr="0x08008064",func="vApplicationGetTimerTaskMemory",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../middlewares/FreeRTOS/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c",fullname="/home/cyl/workspace/mcubot/middlewares/FreeRTOS/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c",line="2481",arch="armv7"}]
+(gdb) 
+38^done,stack=[frame={level="0",addr="0x08011ad6",func="pal_ctl_thread",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../pal/pal.c",fullname="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/pal/pal.c",line="357",arch="armv7"},frame={level="1",addr="0x08008064",func="vApplicationGetTimerTaskMemory",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../middlewares/FreeRTOS/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c",fullname="/home/cyl/workspace/mcubot/middlewares/FreeRTOS/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c",line="2481",arch="armv7"}]
+(gdb) 
+39^done,variables=[{name="root",type="cJSON *",value="0x200177c0"},{name="rendered",type="char *",value="<optimized out>"},{name="parameter",arg="1",type="void *",value="<optimized out>"},{name="i",type="uint8_t",value="<optimized out>"},{name="time",type="uint8_t",value="1 '\\001'"}]
+(gdb) 
+40^error,msg="Variable object not found"
+(gdb) 
+41^done,name="var_root_256",numchild="8",value="0x200177c0",type="cJSON *",thread-id="1",has_more="0"
+(gdb) 
+42^error,msg="Variable object not found"
+(gdb) 
+43^done,name="var_rendered_256",numchild="1",value="<optimized out>",type="char *",thread-id="1",has_more="0"
+(gdb) 
+44^error,msg="Variable object not found"
+(gdb) 
+45^done,name="var_parameter_256",numchild="0",value="<optimized out>",type="void *",thread-id="1",has_more="0"
+(gdb) 
+46^error,msg="Variable object not found"
+(gdb) 
+47^done,name="var_i_256",numchild="0",value="<optimized out>",type="uint8_t",thread-id="1",has_more="0"
+(gdb) 
+48^error,msg="Variable object not found"
+(gdb) 
+49^done,name="var_time_256",numchild="0",value="1 '\\001'",type="uint8_t",has_more="0"
+(gdb) 
+50^done
+(gdb) 
+51^running
+*running,thread-id="all"
+(gdb) 
+52^done
+(gdb) 
+~"\nProgram"
+~" received signal SIGINT, Interrupt.\n"
+~"Fault_Loop () at /home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s:43\n"
+~"43\t    BL      Fault_Loop              /* while(1) */\n"
+*stopped,reason="signal-received",signal-name="SIGINT",signal-meaning="Interrupt",frame={addr="0x08000238",func="Fault_Loop",args=[],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",fullname="/home/cyl/workspace/mcubot/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",line="43",arch="armv7"},thread-id="1",stopped-threads="all"
+53^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+54^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08000238",func="Fault_Loop",args=[],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",fullname="/home/cyl/workspace/mcubot/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",line="43",arch="armv7"},state="stopped"}]
+(gdb) 
+55^done,register-values=[{number="0",value="10"},{number="1",value="1073762304"},{number="2",value="27251"},{number="3",value="-158"},{number="4",value="536969216"},{number="5",value="264"},{number="6",value="536872236"},{number="7",value="536871576"},{number="8",value="536969032"},{number="9",value="536871532"},{number="10",value="536969128"},{number="11",value="536871556"},{number="12",value="536968979"},{number="13",value="0x20017fe0"},{number="14",value="134218301"},{number="15",value="0x8000238 <Fault_Loop>"},{number="25",value="16777219"},{number="58",value="4.441851962828683e-155"},{number="59",value="-2.4604375534892922e+191"},{number="60",value="-4.8957897977394473e+156"},{number="61",value="-2.707060175004581e+98"},{number="62",value="-2.8331322267851595e+138"},{number="63",value="-1.2802017084720077e-19"},{number="64",value="-7.7243862884912029e+129"},{number="65",value="-3.073098340021648e+17"},{number="66",value="4.3533942188203666e+31"},{number="67",value="-3.5242978078970502e-245"},{number="68",value="3.4204568000236007e+189"},{number="69",value="-2.7710043476032329e+218"},{number="70",value="-1.5661265541174221e+196"},{number="71",value="8.3451482342889592e+169"},{number="72",value="1.3034744170016879e+30"},{number="73",value="2.0681109403422869e+186"},{number="90",value="0"},{number="91",value="0x20017fe0"},{number="92",value="0x20004210 <ucHeap+7284>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"},{number="97",value="4.13842268e+10"},{number="98",value="9.61626995e-20"},{number="99",value="-15614.7012"},{number="100",value="-1.62082173e+24"},{number="101",value="-3.459967e-19"},{number="102",value="-7.11414634e+19"},{number="103",value="320501.625"},{number="104",value="-3.84286091e+12"},{number="105",value="7.14208621e-33"},{number="106",value="-3.92831453e+17"},{number="107",value="1.77757559e-20"},{number="108",value="-0.00798904058"},{number="109",value="9.24137567e-34"},{number="110",value="-3.24100444e+16"},{number="111",value="-9.18079699e-14"},{number="112",value="-290.118225"},{number="113",value="2.80681648e-34"},{number="114",value="16533.9023"},{number="115",value="-6.33951048e-35"},{number="116",value="-5.38650256e-31"},{number="117",value="9.18873267e-13"},{number="118",value="9.47146777e+23"},{number="119",value="1.59452946e-29"},{number="120",value="-3.89021615e+27"},{number="121",value="8.27805852e-05"},{number="122",value="-6.45330576e+24"},{number="123",value="9.12503338"},{number="124",value="3.35938133e+21"},{number="125",value="-794.501282"},{number="126",value="11292.9375"},{number="127",value="-5.46286742e-15"},{number="128",value="3.74058176e+23"}]
+(gdb) 
+56^done,depth="1"
+(gdb) 
+57^done,stack=[frame={level="0",addr="0x08000238",func="Fault_Loop",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",fullname="/home/cyl/workspace/mcubot/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",line="43",arch="armv7"}]
+(gdb) 
+58^done,variables=[]
+(gdb) 
+59^done,value="{<text variable, no debug info>} 0x8000230 <HardFault_Handler>"
+(gdb) 
+@"target halted due to debug-request, current mode: Thread \n"
+@"xPSR: 0x01000000 pc: 0x08021abc msp: 0x20018000\n"
+60^done
+(gdb) 
+61^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+62^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08000238",func="Fault_Loop",args=[],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",fullname="/home/cyl/workspace/mcubot/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",line="43",arch="armv7"},state="stopped"}]
+(gdb) 
+63^done,register-values=[{number="0",value="10"},{number="1",value="1073762304"},{number="2",value="27251"},{number="3",value="-158"},{number="4",value="536969216"},{number="5",value="264"},{number="6",value="536872236"},{number="7",value="536871576"},{number="8",value="536969032"},{number="9",value="536871532"},{number="10",value="536969128"},{number="11",value="536871556"},{number="12",value="536968979"},{number="13",value="0x20017fe0"},{number="14",value="134218301"},{number="15",value="0x8000238 <Fault_Loop>"},{number="25",value="16777219"},{number="58",value="4.441851962828683e-155"},{number="59",value="-2.4604375534892922e+191"},{number="60",value="-4.8957897977394473e+156"},{number="61",value="-2.707060175004581e+98"},{number="62",value="-2.8331322267851595e+138"},{number="63",value="-1.2802017084720077e-19"},{number="64",value="-7.7243862884912029e+129"},{number="65",value="-3.073098340021648e+17"},{number="66",value="4.3533942188203666e+31"},{number="67",value="-3.5242978078970502e-245"},{number="68",value="3.4204568000236007e+189"},{number="69",value="-2.7710043476032329e+218"},{number="70",value="-1.5661265541174221e+196"},{number="71",value="8.3451482342889592e+169"},{number="72",value="1.3034744170016879e+30"},{number="73",value="2.0681109403422869e+186"},{number="90",value="0"},{number="91",value="0x20017fe0"},{number="92",value="0x20004210 <ucHeap+7284>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"},{number="97",value="4.13842268e+10"},{number="98",value="9.61626995e-20"},{number="99",value="-15614.7012"},{number="100",value="-1.62082173e+24"},{number="101",value="-3.459967e-19"},{number="102",value="-7.11414634e+19"},{number="103",value="320501.625"},{number="104",value="-3.84286091e+12"},{number="105",value="7.14208621e-33"},{number="106",value="-3.92831453e+17"},{number="107",value="1.77757559e-20"},{number="108",value="-0.00798904058"},{number="109",value="9.24137567e-34"},{number="110",value="-3.24100444e+16"},{number="111",value="-9.18079699e-14"},{number="112",value="-290.118225"},{number="113",value="2.80681648e-34"},{number="114",value="16533.9023"},{number="115",value="-6.33951048e-35"},{number="116",value="-5.38650256e-31"},{number="117",value="9.18873267e-13"},{number="118",value="9.47146777e+23"},{number="119",value="1.59452946e-29"},{number="120",value="-3.89021615e+27"},{number="121",value="8.27805852e-05"},{number="122",value="-6.45330576e+24"},{number="123",value="9.12503338"},{number="124",value="3.35938133e+21"},{number="125",value="-794.501282"},{number="126",value="11292.9375"},{number="127",value="-5.46286742e-15"},{number="128",value="3.74058176e+23"}]
+(gdb) 
+64^done,depth="1"
+(gdb) 
+65^done,stack=[frame={level="0",addr="0x08000238",func="Fault_Loop",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",fullname="/home/cyl/workspace/mcubot/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",line="43",arch="armv7"}]
+(gdb) 
+66^done,variables=[]
+(gdb) 
+67^running
+*running,thread-id="all"
+(gdb) 
+68^done
+(gdb) 
+~"\nProgram"
+~" received signal SIGINT, Interrupt.\n"
+~"Fault_Loop () at /home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s:43\n"
+~"43\t    BL      Fault_Loop              /* while(1) */\n"
+*stopped,reason="signal-received",signal-name="SIGINT",signal-meaning="Interrupt",frame={addr="0x08000238",func="Fault_Loop",args=[],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",fullname="/home/cyl/workspace/mcubot/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",line="43",arch="armv7"},thread-id="1",stopped-threads="all"
+69^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+70^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08000238",func="Fault_Loop",args=[],file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",fullname="/home/cyl/workspace/mcubot/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",line="43",arch="armv7"},state="stopped"}]
+(gdb) 
+71^done,register-values=[{number="0",value="10"},{number="1",value="1073762304"},{number="2",value="26999"},{number="3",value="-122"},{number="4",value="112"},{number="5",value="134398728"},{number="6",value="18"},{number="7",value="536969120"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="536968979"},{number="13",value="0x20017fe0"},{number="14",value="134218301"},{number="15",value="0x8000238 <Fault_Loop>"},{number="25",value="16777219"},{number="58",value="4.441851962828683e-155"},{number="59",value="-2.4604375534892922e+191"},{number="60",value="-4.8957897977394473e+156"},{number="61",value="-2.707060175004581e+98"},{number="62",value="-2.8331322267851595e+138"},{number="63",value="-1.2802017084720077e-19"},{number="64",value="-7.7243862884912029e+129"},{number="65",value="-3.073098340021648e+17"},{number="66",value="4.3533942188203666e+31"},{number="67",value="-3.5242978078970502e-245"},{number="68",value="3.4204568000236007e+189"},{number="69",value="-2.7710043476032329e+218"},{number="70",value="-1.5661265541174221e+196"},{number="71",value="8.3451482342889592e+169"},{number="72",value="1.3034744170016879e+30"},{number="73",value="2.0681109403422869e+186"},{number="90",value="0"},{number="91",value="0x20017fe0"},{number="92",value="0x20007d00 <ucHeap+22372>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"},{number="97",value="4.13842268e+10"},{number="98",value="9.61626995e-20"},{number="99",value="-15614.7012"},{number="100",value="-1.62082173e+24"},{number="101",value="-3.459967e-19"},{number="102",value="-7.11414634e+19"},{number="103",value="320501.625"},{number="104",value="-3.84286091e+12"},{number="105",value="7.14208621e-33"},{number="106",value="-3.92831453e+17"},{number="107",value="1.77757559e-20"},{number="108",value="-0.00798904058"},{number="109",value="9.24137567e-34"},{number="110",value="-3.24100444e+16"},{number="111",value="-9.18079699e-14"},{number="112",value="-290.118225"},{number="113",value="2.80681648e-34"},{number="114",value="16533.9023"},{number="115",value="-6.33951048e-35"},{number="116",value="-5.38650256e-31"},{number="117",value="9.18873267e-13"},{number="118",value="9.47146777e+23"},{number="119",value="1.59452946e-29"},{number="120",value="-3.89021615e+27"},{number="121",value="8.27805852e-05"},{number="122",value="-6.45330576e+24"},{number="123",value="9.12503338"},{number="124",value="3.35938133e+21"},{number="125",value="-794.501282"},{number="126",value="11292.9375"},{number="127",value="-5.46286742e-15"},{number="128",value="3.74058176e+23"}]
+(gdb) 
+72^done
+(gdb) 
+73^done,depth="1"
+(gdb) 
+74^done,stack=[frame={level="0",addr="0x08000238",func="Fault_Loop",file="/home/cyl/workspace/mcubot/projects/c5_task_mcu_motor_project/c5_task_mcu_motor/hal/core/../../../../../utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",fullname="/home/cyl/workspace/mcubot/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s",line="43",arch="armv7"}]
+(gdb) 
+75^done,variables=[]
+(gdb) 
+76^done,value="{<text variable, no debug info>} 0x8000230 <HardFault_Handler>"
+(gdb) 
+77^done
+(gdb) 
+=thread-exited,id="1",group-id="i1"
+=thread-group-exited,id="i1"
+78^done
+(gdb) 
+^exit

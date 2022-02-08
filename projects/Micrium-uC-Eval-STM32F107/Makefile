@@ -14,9 +14,9 @@
 # user defines
 ######################################
 CI_BUILD_NUM=0
-COMMIT_ID=0#$(shell git rev-parse --short=8 HEAD)
+COMMIT_ID=$(shell git rev-parse --short=8 HEAD)
 BUILD_TIME=$(shell date +%Y%m%d%H%M%S)
-CURRENT_BRANCH=dev#$(shell git rev-parse --abbrev-ref HEAD)
+CURRENT_BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 SOFTWARE_VERSION=0.0.1
 MODEL_NAME=STM32F107
 

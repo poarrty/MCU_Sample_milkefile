@@ -87,15 +87,16 @@ inline T const &Max(T const &a, T const &b) {
 void cpp_main(void) {
     int i = 39;
     int j = 20;
-    cout << "Max(i, j): " << Max(i, j) << endl;
+    cout << "Max(i, j): " << Max(i, j) << endl; 
+ 
+    double f1 = 13.5; 
+    double f2 = 20.7; 
+    cout << "Max(f1, f2): " << Max(f1, f2) << endl; 
+ 
+    string s1 = "Hello"; 
+    string s2 = "World"; 
+    cout << "Max(s1, s2): " << Max(s1, s2) << endl; 
 
-    double f1 = 13.5;
-    double f2 = 20.7;
-    cout << "Max(f1, f2): " << (int) (Max(f1, f2)) << endl;
-
-    string s1 = "Hello";
-    string s2 = "World";
-    cout << "Max(s1, s2): " << Max(s1, s2) << endl;
 }
 
 extern "C" {

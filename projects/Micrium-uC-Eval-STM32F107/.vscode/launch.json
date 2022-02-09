@@ -1,0 +1,25 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/Micrium-uC-Eval-STM32F107.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "device": "STM32F107VC",
+            "configFiles": [
+                "target/stm32f1x.cfg"
+            ],
+            "openOCDPreConfigLaunchCommands": [
+                "interface jlink",
+                "transport select swd"
+            ],
+            "runToMain": true
+        }
+    ]
+}

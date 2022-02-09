@@ -14494,3 +14494,728 @@ No symbol "be" in current context.
 No symbol "generated" in current context.
 No symbol "or" in current context.
 Quit
+=cmd-param-changed,param="print array-indexes",value="on"
+=cmd-param-changed,param="print pretty",value="on"
+~"Reading symbols from /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/build/Micrium-uC-Eval-STM32F107.elf...\n"
+(gdb) 
+1^done
+(gdb) 
+~"GNU gdb (GNU Arm Embedded Toolchain 10.3-2021.07) 10.2.90.20210621-git\n"
+~"Copyright (C) 2021 Free Software Foundation, Inc.\n"
+~"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law."
+~"\nType \"show copying\" and \"show warranty\" for details.\n"
+~"This GDB was configured as \"--host=x86_64-linux-gnu --target=arm-none-eabi\".\n"
+~"Type \"show configuration\" for configuration details.\n"
+~"For bug reporting instructions, please see:\n"
+~"<https://www.gnu.org/software/gdb/bugs/>.\n"
+~"Find the GDB manual and other documentation resources online at:\n    <http://www.gnu.org/software/gdb/documentation/>."
+~"\n\n"
+~"For help, type \"help\".\n"
+~"Type \"apropos word\" to search for commands related to \"word\".\n"
+2^done
+(gdb) 
+3^done
+(gdb) 
+=cmd-param-changed,param="print asm-demangle",value="on"
+4^done
+(gdb) 
+~"Source files for which symbols have been read in:\n"
+~"\n"
+~"\n\n"
+~"Source files for which symbols will be read in on demand:\n"
+~"\n"
+~"/usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/alloc_traits.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/ext/new_allocator.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/allocator.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/locale_facets.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/basic_ios.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/ostream, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/char_traits.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/basic_string.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator_base_funcs.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/basic_string.tcc, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/iostream, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/fal/cpp/test.cpp, /home/cyl/workspace/MCU_Sample_milkefile/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/startup_stm32f107xc.s, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/pal/pal.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/driver/drv_usart.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/hal.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/fal/fal_common.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/fal/fal_log.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/core_cm3.h, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/cmsis_gcc.h, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/fal/fal_letter_shell.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/common/common_def.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/common/common.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/app/app.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/middlewares/tasks_t.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/middlewares/heap_4_t.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/utilities/letter_shell/porting/shell_port.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/utilities/rtt_fal/porting/rtt_fal_flash_gd32f303_port.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/utilities/easylogger/elog_port.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/common_config/system/system_status.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/common_config/system/sys.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/common_config/system/version.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/common_config/system/extern_init.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/time/cputime/cputime.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/segger-rtt/RTT/SEGGER_RTT.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/easylogger/src/elog.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/easylogger/src/elog_async.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/easylogger/src/elog_utils.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/cm_backtrace/fault_test.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/cm_backtrace/cmb_def.h, /home/cyl/workspace/MCU_Sample_milkefile/utilities/cm_backtrace/cm_backtrace.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/RTT_FAL/src/rtt_fal.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/RTT_FAL/src/rtt_fal_partition.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/RTT_FAL/src/rtt_fal_flash.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/FlashDB/src/fdb.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/FlashDB/src/fdb_utils.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/FlashDB/src/fdb_kvdb.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/letter-shell/src/shell_ext.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/letter-shell/src/shell.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/timers.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/queue.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/list.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/system_stm32f1xx.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/iwdg.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/usart.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/rtc.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/gpio.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_timebase_tim.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_msp.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_it.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/freertos.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c\n"
+5^done
+(gdb) 
+6^done
+(gdb) 
+=cmd-param-changed,param="language",value="c"
+=cmd-param-changed,param="language",value="auto"
+7^done
+(gdb) 
+=thread-group-started,id="i1",pid="42000"
+=thread-created,id="1",group-id="i1"
+~"0x00000000 in ?? ()\n"
+*stopped,frame={addr="0x00000000",func="??",args=[],arch="armv7"},thread-id="1",stopped-threads="all"
+8^connected
+(gdb) 
+@"target halted due to debug-request, current mode: Thread \n"
+@"xPSR: 0x01000000 pc: 0x0800cc10 msp: 0x20010000\n"
+9^done
+(gdb) 
+10+download,{section=".isr_vector",section-size="484",total-size="2396529"}
+10+download,{section=".isr_vector",section-sent="484",section-size="484",total-sent="484",total-size="2396529"}
+10+download,{section=".text",section-size="194588",total-size="2396529"}
+10+download,{section=".rodata",section-size="29764",total-size="2396529"}
+10+download,{section="FalPartTable",section-size="320",total-size="2396529"}
+10+download,{section=".ARM.extab",section-size="84",total-size="2396529"}
+10+download,{section=".ARM",section-size="224",total-size="2396529"}
+10+download,{section=".init_array",section-size="28",total-size="2396529"}
+10+download,{section=".fini_array",section-size="4",total-size="2396529"}
+10+download,{section=".data",section-size="764",total-size="2396529"}
+10^done,address="0x0800cc10",load-size="226260",transfer-rate="108200",write-rate="10284"
+(gdb) 
+@"target halted due to debug-request, current mode: Thread \n"
+@"xPSR: 0x01000000 pc: 0x0800cc10 msp: 0x20010000\n"
+11^done
+(gdb) 
+12^done
+(gdb) 
+~"Note: automatically using hardware breakpoints for read-only addresses.\n"
+13^done,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",thread-groups=["i1"],times="0",original-location="-function main"}
+(gdb) 
+14^running
+*running,thread-id="all"
+(gdb) 
+=breakpoint-modified,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",thread-groups=["i1"],times="1",original-location="-function main"}
+~"\n"
+~"Temporary breakpoint 1, main () at /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:69\n"
+~"69\t{\n"
+*stopped,reason="breakpoint-hit",disp="del",bkptno="1",frame={addr="0x080025d4",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"},thread-id="1",stopped-threads="all"
+=breakpoint-deleted,id="1"
+15^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+16^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025d4",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"},state="stopped"}]
+(gdb) 
+17^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+18^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025d4",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"},state="stopped"}]
+(gdb) 
+19^done,register-names=["r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","sp","lr","pc","","","","","","","","","","xPSR","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","msp","psp","primask","basepri","faultmask","control"]
+(gdb) 
+20^done,depth="1"
+(gdb) 
+21^done,stack=[frame={level="0",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"}]
+(gdb) 
+22^done,depth="1"
+(gdb) 
+23^done,stack=[frame={level="0",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"}]
+(gdb) 
+24^done,register-values=[{number="0",value="0"},{number="1",value="536871564"},{number="2",value="536870912"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="134435848"},{number="13",value="0x20010000"},{number="14",value="134270019"},{number="15",value="0x80025d4 <main>"},{number="25",value="1627389952"},{number="91",value="0x20010000"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+25^done,frame={level="0",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"}
+(gdb) 
+26^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025d6",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"},thread-id="1",stopped-threads="all"
+27^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+28^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025d6",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"},state="stopped"}]
+(gdb) 
+29^done,register-values=[{number="0",value="0"},{number="1",value="536871564"},{number="2",value="536870912"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="134435848"},{number="13",value="0x2000fff8"},{number="14",value="134270019"},{number="15",value="0x80025d6 <main+2>"},{number="25",value="1627389952"},{number="91",value="0x2000fff8"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+30^done,depth="1"
+(gdb) 
+31^done,stack=[frame={level="0",addr="0x080025d6",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"}]
+(gdb) 
+32^done,frame={level="0",addr="0x080025d6",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"}
+(gdb) 
+33^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025da",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"},thread-id="1",stopped-threads="all"
+34^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+35^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025da",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"},state="stopped"}]
+(gdb) 
+36^done,register-values=[{number="0",value="0"},{number="1",value="240"},{number="2",value="1073807360"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000fff8"},{number="14",value="-1"},{number="15",value="0x80025da <main+6>"},{number="25",value="1090519040"},{number="91",value="0x2000fff8"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+37^done,depth="1"
+(gdb) 
+38^done,stack=[frame={level="0",addr="0x080025da",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+39^done,frame={level="0",addr="0x080025da",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}
+(gdb) 
+40^running
+*running,thread-id="all"
+(gdb) 
+41^done
+(gdb) 
+~"\nProgram"
+~" received signal SIGINT, Interrupt.\n"
+~"Error_Handler () at /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:204\n"
+~"204\t  while (1) {\n"
+*stopped,reason="signal-received",signal-name="SIGINT",signal-meaning="Interrupt",frame={addr="0x0800252e",func="Error_Handler",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="204",arch="armv7"},thread-id="1",stopped-threads="all"
+42^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+43^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x0800252e",func="Error_Handler",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="204",arch="armv7"},state="stopped"}]
+(gdb) 
+44^done,register-values=[{number="0",value="3"},{number="1",value="1536"},{number="2",value="1"},{number="3",value="536871892"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227401"},{number="15",value="0x800252e <Error_Handler+2>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="1"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+45^done,depth="3"
+(gdb) 
+46^done,stack=[frame={level="0",addr="0x0800252e",func="Error_Handler",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="204",arch="armv7"},frame={level="1",addr="0x080025c8",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="144",arch="armv7"},frame={level="2",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+@"target halted due to debug-request, current mode: Thread \n"
+@"xPSR: 0x01000000 pc: 0x0800cc10 msp: 0x20010000\n"
+47^done
+(gdb) 
+48^done,bkpt={number="2",type="breakpoint",disp="del",enabled="y",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",thread-groups=["i1"],times="0",original-location="-function main"}
+(gdb) 
+49^running
+*running,thread-id="all"
+(gdb) 
+=breakpoint-modified,bkpt={number="2",type="breakpoint",disp="del",enabled="y",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",thread-groups=["i1"],times="1",original-location="-function main"}
+~"\n"
+~"Temporary breakpoint 2, main () at /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:69\n"
+~"69\t{\n"
+*stopped,reason="breakpoint-hit",disp="del",bkptno="2",frame={addr="0x080025d4",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"},thread-id="1",stopped-threads="all"
+=breakpoint-deleted,id="2"
+50^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+51^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+52^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025d4",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"},state="stopped"}]
+(gdb) 
+53^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025d4",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"},state="stopped"}]
+(gdb) 
+54^done,register-values=[{number="0",value="0"},{number="1",value="536871564"},{number="2",value="536870912"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="134435848"},{number="13",value="0x20010000"},{number="14",value="134270019"},{number="15",value="0x80025d4 <main>"},{number="25",value="1627389952"},{number="91",value="0x20010000"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+55^done,register-values=[{number="0",value="0"},{number="1",value="536871564"},{number="2",value="536870912"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="134435848"},{number="13",value="0x20010000"},{number="14",value="134270019"},{number="15",value="0x80025d4 <main>"},{number="25",value="1627389952"},{number="91",value="0x20010000"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+56^done,depth="1"
+(gdb) 
+57^done,depth="1"
+(gdb) 
+58^done,stack=[frame={level="0",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"}]
+(gdb) 
+59^done,stack=[frame={level="0",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"}]
+(gdb) 
+60^done,frame={level="0",addr="0x080025d4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"}
+(gdb) 
+61^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025d6",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"},thread-id="1",stopped-threads="all"
+62^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+63^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025d6",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"},state="stopped"}]
+(gdb) 
+64^done,register-values=[{number="0",value="0"},{number="1",value="536871564"},{number="2",value="536870912"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="134435848"},{number="13",value="0x2000fff8"},{number="14",value="134270019"},{number="15",value="0x80025d6 <main+2>"},{number="25",value="1627389952"},{number="91",value="0x2000fff8"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+65^done,depth="1"
+(gdb) 
+66^done,stack=[frame={level="0",addr="0x080025d6",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"}]
+(gdb) 
+67^done,frame={level="0",addr="0x080025d6",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"}
+(gdb) 
+68^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025da",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"},thread-id="1",stopped-threads="all"
+69^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+70^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025da",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"},state="stopped"}]
+(gdb) 
+71^done,register-values=[{number="0",value="0"},{number="1",value="240"},{number="2",value="1073807360"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000fff8"},{number="14",value="-1"},{number="15",value="0x80025da <main+6>"},{number="25",value="1090519040"},{number="91",value="0x2000fff8"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+72^done,depth="1"
+(gdb) 
+73^done,stack=[frame={level="0",addr="0x080025da",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+74^done,frame={level="0",addr="0x080025da",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}
+(gdb) 
+75^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002534",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="123",arch="armv7"},thread-id="1",stopped-threads="all"
+76^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+77^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002534",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="123",arch="armv7"},state="stopped"}]
+(gdb) 
+78^done,register-values=[{number="0",value="0"},{number="1",value="240"},{number="2",value="1073807360"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227423"},{number="15",value="0x8002534 <SystemClock_Config+4>"},{number="25",value="1090519040"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+79^done,depth="2"
+(gdb) 
+80^done,stack=[frame={level="0",addr="0x08002534",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="123",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+81^error,msg="No symbol \"Configuration\" in current context."
+(gdb) 
+82^done,frame={level="0",addr="0x08002534",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="123",arch="armv7"}
+(gdb) 
+83^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002540",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="124",arch="armv7"},thread-id="1",stopped-threads="all"
+84^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+85^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002540",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="124",arch="armv7"},state="stopped"}]
+(gdb) 
+86^done,register-values=[{number="0",value="536936376"},{number="1",value="0"},{number="2",value="536936432"},{number="3",value="536936432"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227265"},{number="15",value="0x8002540 <SystemClock_Config+16>"},{number="25",value="1627389952"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+87^done,depth="2"
+(gdb) 
+88^done,stack=[frame={level="0",addr="0x08002540",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="124",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+89^done,frame={level="0",addr="0x08002540",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="124",arch="armv7"}
+(gdb) 
+90^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x0800254c",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="125",arch="armv7"},thread-id="1",stopped-threads="all"
+91^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+92^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x0800254c",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="125",arch="armv7"},state="stopped"}]
+(gdb) 
+93^done,register-values=[{number="0",value="536936376"},{number="1",value="0"},{number="2",value="536936432"},{number="3",value="536936432"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227265"},{number="15",value="0x800254c <SystemClock_Config+28>"},{number="25",value="1627389952"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+94^done,depth="2"
+(gdb) 
+95^done,stack=[frame={level="0",addr="0x0800254c",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="125",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+96^done,frame={level="0",addr="0x0800254c",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="125",arch="armv7"}
+(gdb) 
+97^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002554",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="130",arch="armv7"},thread-id="1",stopped-threads="all"
+98^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+99^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002554",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="130",arch="armv7"},state="stopped"}]
+(gdb) 
+100^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="536936356"},{number="3",value="536936356"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x8002554 <SystemClock_Config+36>"},{number="25",value="1627389952"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+101^done,depth="2"
+(gdb) 
+102^done,stack=[frame={level="0",addr="0x08002554",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="130",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+103^done,frame={level="0",addr="0x08002554",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="130",arch="armv7"}
+(gdb) 
+104^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002558",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="131",arch="armv7"},thread-id="1",stopped-threads="all"
+105^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+106^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002558",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="131",arch="armv7"},state="stopped"}]
+(gdb) 
+107^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="536936356"},{number="3",value="9"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x8002558 <SystemClock_Config+40>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+108^done,depth="2"
+(gdb) 
+109^done,stack=[frame={level="0",addr="0x08002558",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="131",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+110^done,frame={level="0",addr="0x08002558",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="131",arch="armv7"}
+(gdb) 
+111^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x0800255e",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="132",arch="armv7"},thread-id="1",stopped-threads="all"
+112^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+113^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x0800255e",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="132",arch="armv7"},state="stopped"}]
+(gdb) 
+114^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="536936356"},{number="3",value="65536"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x800255e <SystemClock_Config+46>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+115^done,depth="2"
+(gdb) 
+116^done,stack=[frame={level="0",addr="0x0800255e",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="132",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+117^done,frame={level="0",addr="0x0800255e",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="132",arch="armv7"}
+(gdb) 
+118^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002562",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="133",arch="armv7"},thread-id="1",stopped-threads="all"
+119^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+120^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002562",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="133",arch="armv7"},state="stopped"}]
+(gdb) 
+121^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="4"},{number="3",value="65536"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x8002562 <SystemClock_Config+50>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+122^done,depth="2"
+(gdb) 
+123^done,stack=[frame={level="0",addr="0x08002562",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="133",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+124^done,frame={level="0",addr="0x08002562",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="133",arch="armv7"}
+(gdb) 
+125^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002566",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="134",arch="armv7"},thread-id="1",stopped-threads="all"
+126^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+127^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002566",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="134",arch="armv7"},state="stopped"}]
+(gdb) 
+128^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="1"},{number="3",value="65536"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x8002566 <SystemClock_Config+54>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+129^done,depth="2"
+(gdb) 
+130^done,stack=[frame={level="0",addr="0x08002566",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="134",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+131^done,value="65536"
+(gdb) 
+132^done,frame={level="0",addr="0x08002566",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="134",arch="armv7"}
+(gdb) 
+133^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002568",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="135",arch="armv7"},thread-id="1",stopped-threads="all"
+134^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+135^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002568",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="135",arch="armv7"},state="stopped"}]
+(gdb) 
+136^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="1"},{number="3",value="65536"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x8002568 <SystemClock_Config+56>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+137^done,depth="2"
+(gdb) 
+138^done,stack=[frame={level="0",addr="0x08002568",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="135",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+139^done,frame={level="0",addr="0x08002568",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="135",arch="armv7"}
+(gdb) 
+140^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x0800256a",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="136",arch="armv7"},thread-id="1",stopped-threads="all"
+141^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+142^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x0800256a",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="136",arch="armv7"},state="stopped"}]
+(gdb) 
+143^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="1"},{number="3",value="65536"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x800256a <SystemClock_Config+58>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+144^done,depth="2"
+(gdb) 
+145^done,stack=[frame={level="0",addr="0x0800256a",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="136",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+146^done,frame={level="0",addr="0x0800256a",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="136",arch="armv7"}
+(gdb) 
+147^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x0800256e",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="137",arch="armv7"},thread-id="1",stopped-threads="all"
+148^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+149^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x0800256e",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="137",arch="armv7"},state="stopped"}]
+(gdb) 
+150^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="2"},{number="3",value="65536"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x800256e <SystemClock_Config+62>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+151^done,depth="2"
+(gdb) 
+152^done,stack=[frame={level="0",addr="0x0800256e",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="137",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+153^done,frame={level="0",addr="0x0800256e",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="137",arch="armv7"}
+(gdb) 
+154^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002570",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="138",arch="armv7"},thread-id="1",stopped-threads="all"
+155^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+156^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002570",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="138",arch="armv7"},state="stopped"}]
+(gdb) 
+157^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="2"},{number="3",value="65536"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x8002570 <SystemClock_Config+64>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+158^done,depth="2"
+(gdb) 
+159^done,stack=[frame={level="0",addr="0x08002570",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="138",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+160^done,frame={level="0",addr="0x08002570",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="138",arch="armv7"}
+(gdb) 
+161^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002576",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="139",arch="armv7"},thread-id="1",stopped-threads="all"
+162^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+163^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002576",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="139",arch="armv7"},state="stopped"}]
+(gdb) 
+164^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="2"},{number="3",value="1835008"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x8002576 <SystemClock_Config+70>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+165^done,depth="2"
+(gdb) 
+166^done,stack=[frame={level="0",addr="0x08002576",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="139",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+167^done,frame={level="0",addr="0x08002576",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="139",arch="armv7"}
+(gdb) 
+168^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002578",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="140",arch="armv7"},thread-id="1",stopped-threads="all"
+169^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+170^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002578",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="140",arch="armv7"},state="stopped"}]
+(gdb) 
+171^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="2"},{number="3",value="1835008"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x8002578 <SystemClock_Config+72>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+172^done,depth="2"
+(gdb) 
+173^done,stack=[frame={level="0",addr="0x08002578",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="140",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+174^done,frame={level="0",addr="0x08002578",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="140",arch="armv7"}
+(gdb) 
+175^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x0800257e",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="141",arch="armv7"},thread-id="1",stopped-threads="all"
+176^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+177^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x0800257e",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="141",arch="armv7"},state="stopped"}]
+(gdb) 
+178^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="2"},{number="3",value="1536"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x800257e <SystemClock_Config+78>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+179^done,depth="2"
+(gdb) 
+180^done,stack=[frame={level="0",addr="0x0800257e",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="141",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+181^done,frame={level="0",addr="0x0800257e",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="141",arch="armv7"}
+(gdb) 
+182^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x08002582",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="142",arch="armv7"},thread-id="1",stopped-threads="all"
+183^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+184^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x08002582",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="142",arch="armv7"},state="stopped"}]
+(gdb) 
+185^done,register-values=[{number="0",value="536936324"},{number="1",value="0"},{number="2",value="2"},{number="3",value="64"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134227285"},{number="15",value="0x8002582 <SystemClock_Config+82>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+186^done,depth="2"
+(gdb) 
+187^done,stack=[frame={level="0",addr="0x08002582",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="142",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+188^done,frame={level="0",addr="0x08002582",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="142",arch="armv7"}
+(gdb) 
+189^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025c4",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="144",arch="armv7"},thread-id="1",stopped-threads="all"
+190^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+191^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025c4",func="SystemClock_Config",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="144",arch="armv7"},state="stopped"}]
+(gdb) 
+192^done,register-values=[{number="0",value="3"},{number="1",value="1536"},{number="2",value="1"},{number="3",value="536871892"},{number="4",value="536909332"},{number="5",value="536872856"},{number="6",value="32"},{number="7",value="20"},{number="8",value="134744072"},{number="9",value="151587081"},{number="10",value="269488144"},{number="11",value="286331153"},{number="12",value="-16"},{number="13",value="0x2000ff80"},{number="14",value="134229793"},{number="15",value="0x80025c4 <SystemClock_Config+148>"},{number="25",value="553648128"},{number="91",value="0x2000ff80"},{number="92",value="0x2000132c <log_buf+1324>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+193^done,depth="2"
+(gdb) 
+194^done,stack=[frame={level="0",addr="0x080025c4",func="SystemClock_Config",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="144",arch="armv7"},frame={level="1",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+195^done,value="64"
+(gdb) 
+196^done,value="0x2000ffb8"
+(gdb) 
+197^done
+(gdb) 
+=thread-exited,id="1",group-id="i1"
+=thread-group-exited,id="i1"
+198^done
+(gdb) 
+^exit
+=cmd-param-changed,param="print array-indexes",value="on"
+=cmd-param-changed,param="print pretty",value="on"
+~"Reading symbols from /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/build/Micrium-uC-Eval-STM32F107.elf...\n"
+(gdb) 
+1^done
+(gdb) 
+~"GNU gdb (GNU Arm Embedded Toolchain 10.3-2021.07) 10.2.90.20210621-git\n"
+~"Copyright (C) 2021 Free Software Foundation, Inc.\n"
+~"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law."
+~"\nType \"show copying\" and \"show warranty\" for details.\n"
+~"This GDB was configured as \"--host=x86_64-linux-gnu --target=arm-none-eabi\".\n"
+~"Type \"show configuration\" for configuration details.\n"
+~"For bug reporting instructions, please see:\n"
+~"<https://www.gnu.org/software/gdb/bugs/>.\n"
+~"Find the GDB manual and other documentation resources online at:\n    <http://www.gnu.org/software/gdb/documentation/>."
+~"\n\n"
+~"For help, type \"help\".\n"
+~"Type \"apropos word\" to search for commands related to \"word\".\n"
+2^done
+(gdb) 
+3^done
+(gdb) 
+=cmd-param-changed,param="print asm-demangle",value="on"
+4^done
+(gdb) 
+~"Source files for which symbols have been read in:\n"
+~"\n"
+~"\n\n"
+~"Source files for which symbols will be read in on demand:\n"
+~"\n"
+~"/usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/alloc_traits.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/ext/new_allocator.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/allocator.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/locale_facets.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/basic_ios.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/ostream, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/char_traits.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/basic_string.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator_base_funcs.h, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/bits/basic_string.tcc, /usr/local/bin/gcc-arm-none-eabi-10.3-2021.07/arm-none-eabi/include/c++/10.3.1/iostream, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/fal/cpp/test.cpp, /home/cyl/workspace/MCU_Sample_milkefile/utilities/cm_backtrace/fault_handler/gcc/cmb_fault.s, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/startup_stm32f107xc.s, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/pal/pal.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/driver/drv_usart.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/hal.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/fal/fal_common.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/fal/fal_log.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/core_cm3.h, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/CMSIS/Include/cmsis_gcc.h, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/fal/fal_letter_shell.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/common/common_def.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/common/common.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/app/app.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/middlewares/tasks_t.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/middlewares/heap_4_t.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/utilities/letter_shell/porting/shell_port.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/utilities/rtt_fal/porting/rtt_fal_flash_gd32f303_port.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/utilities/easylogger/elog_port.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/common_config/system/system_status.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/common_config/system/sys.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/common_config/system/version.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/common_config/system/extern_init.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/time/cputime/cputime.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/segger-rtt/RTT/SEGGER_RTT.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/easylogger/src/elog.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/easylogger/src/elog_async.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/easylogger/src/elog_utils.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/cm_backtrace/fault_test.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/cm_backtrace/cmb_def.h, /home/cyl/workspace/MCU_Sample_milkefile/utilities/cm_backtrace/cm_backtrace.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/RTT_FAL/src/rtt_fal.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/RTT_FAL/src/rtt_fal_partition.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/RTT_FAL/src/rtt_fal_flash.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/FlashDB/src/fdb.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/FlashDB/src/fdb_utils.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/FlashDB/src/fdb_kvdb.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/letter-shell/src/shell_ext.c, /home/cyl/workspace/MCU_Sample_milkefile/utilities/letter-shell/src/shell.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/timers.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/queue.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Middlewares/Third_Party/FreeRTOS/Source/list.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/system_stm32f1xx.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rtc.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/iwdg.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/usart.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/rtc.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/gpio.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_timebase_tim.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_hal_msp.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/stm32f1xx_it.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/freertos.c, /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c\n"
+5^done
+(gdb) 
+6^done
+(gdb) 
+=cmd-param-changed,param="language",value="c"
+=cmd-param-changed,param="language",value="auto"
+7^done
+(gdb) 
+=thread-group-started,id="i1",pid="42000"
+=thread-created,id="1",group-id="i1"
+~"0x00000000 in ?? ()\n"
+*stopped,frame={addr="0x00000000",func="??",args=[],arch="armv7"},thread-id="1",stopped-threads="all"
+8^connected
+(gdb) 
+@"target halted due to debug-request, current mode: Thread \n"
+@"xPSR: 0x01000000 pc: 0x0800cc50 msp: 0x20010000\n"
+9^done
+(gdb) 
+10+download,{section=".isr_vector",section-size="484",total-size="2361420"}
+10+download,{section=".isr_vector",section-sent="484",section-size="484",total-sent="484",total-size="2361420"}
+10+download,{section=".text",section-size="194652",total-size="2361420"}
+10+download,{section=".rodata",section-size="29764",total-size="2361420"}
+10+download,{section="FalPartTable",section-size="320",total-size="2361420"}
+10+download,{section=".ARM.extab",section-size="84",total-size="2361420"}
+10+download,{section=".ARM",section-size="224",total-size="2361420"}
+10+download,{section=".init_array",section-size="28",total-size="2361420"}
+10+download,{section=".fini_array",section-size="4",total-size="2361420"}
+10+download,{section=".data",section-size="764",total-size="2361420"}
+10^done,address="0x0800cc50",load-size="226324",transfer-rate="107880",write-rate="10287"
+(gdb) 
+@"target halted due to debug-request, current mode: Thread \n"
+@"xPSR: 0x01000000 pc: 0x0800cc50 msp: 0x20010000\n"
+11^done
+(gdb) 
+12^done
+(gdb) 
+~"Note: automatically using hardware breakpoints for read-only addresses.\n"
+13^done,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x080025c4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",thread-groups=["i1"],times="0",original-location="-function main"}
+(gdb) 
+14^running
+*running,thread-id="all"
+(gdb) 
+=breakpoint-modified,bkpt={number="1",type="breakpoint",disp="del",enabled="y",addr="0x080025c4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",thread-groups=["i1"],times="1",original-location="-function main"}
+~"\n"
+~"Temporary breakpoint 1, main () at /home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c:69\n"
+~"69\t{\n"
+*stopped,reason="breakpoint-hit",disp="del",bkptno="1",frame={addr="0x080025c4",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"},thread-id="1",stopped-threads="all"
+=breakpoint-deleted,id="1"
+15^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+16^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025c4",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"},state="stopped"}]
+(gdb) 
+17^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+18^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025c4",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"},state="stopped"}]
+(gdb) 
+19^done,depth="1"
+(gdb) 
+20^done,register-names=["r0","r1","r2","r3","r4","r5","r6","r7","r8","r9","r10","r11","r12","sp","lr","pc","","","","","","","","","","xPSR","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","msp","psp","primask","basepri","faultmask","control"]
+(gdb) 
+21^done,stack=[frame={level="0",addr="0x080025c4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"}]
+(gdb) 
+22^done,depth="1"
+(gdb) 
+23^done,stack=[frame={level="0",addr="0x080025c4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"}]
+(gdb) 
+24^done,register-values=[{number="0",value="0"},{number="1",value="536871564"},{number="2",value="536870912"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872920"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="134435912"},{number="13",value="0x20010000"},{number="14",value="134270083"},{number="15",value="0x80025c4 <main>"},{number="25",value="1627389952"},{number="91",value="0x20010000"},{number="92",value="0x20000758 <Idle_Stack+500>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+25^done,frame={level="0",addr="0x080025c4",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="69",arch="armv7"}
+(gdb) 
+26^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025c6",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"},thread-id="1",stopped-threads="all"
+27^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+28^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025c6",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"},state="stopped"}]
+(gdb) 
+29^done,register-values=[{number="0",value="0"},{number="1",value="536871564"},{number="2",value="536870912"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872920"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="134435912"},{number="13",value="0x2000fff8"},{number="14",value="134270083"},{number="15",value="0x80025c6 <main+2>"},{number="25",value="1627389952"},{number="91",value="0x2000fff8"},{number="92",value="0x20000758 <Idle_Stack+500>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+30^done,depth="1"
+(gdb) 
+31^done,stack=[frame={level="0",addr="0x080025c6",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"}]
+(gdb) 
+32^done,frame={level="0",addr="0x080025c6",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="77",arch="armv7"}
+(gdb) 
+33^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025ca",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"},thread-id="1",stopped-threads="all"
+34^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+35^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025ca",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"},state="stopped"}]
+(gdb) 
+36^done,register-values=[{number="0",value="0"},{number="1",value="240"},{number="2",value="1073807360"},{number="3",value="536870912"},{number="4",value="536909332"},{number="5",value="536872920"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="-16"},{number="13",value="0x2000fff8"},{number="14",value="-1"},{number="15",value="0x80025ca <main+6>"},{number="25",value="1090519040"},{number="91",value="0x2000fff8"},{number="92",value="0x20000758 <Idle_Stack+500>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+37^done,depth="1"
+(gdb) 
+38^done,stack=[frame={level="0",addr="0x080025ca",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}]
+(gdb) 
+39^done,frame={level="0",addr="0x080025ca",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="84",arch="armv7"}
+(gdb) 
+40^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025ce",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="91",arch="armv7"},thread-id="1",stopped-threads="all"
+41^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+42^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025ce",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="91",arch="armv7"},state="stopped"}]
+(gdb) 
+43^done,register-values=[{number="0",value="0"},{number="1",value="512"},{number="2",value="1"},{number="3",value="1111621632"},{number="4",value="536909332"},{number="5",value="536872920"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="-16"},{number="13",value="0x2000fff8"},{number="14",value="134231187"},{number="15",value="0x80025ce <main+10>"},{number="25",value="16777216"},{number="91",value="0x2000fff8"},{number="92",value="0x20000758 <Idle_Stack+500>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+44^done,depth="1"
+(gdb) 
+45^done,stack=[frame={level="0",addr="0x080025ce",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="91",arch="armv7"}]
+(gdb) 
+46^done,frame={level="0",addr="0x080025ce",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="91",arch="armv7"}
+(gdb) 
+47^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025d2",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="92",arch="armv7"},thread-id="1",stopped-threads="all"
+48^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+49^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025d2",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="92",arch="armv7"},state="stopped"}]
+(gdb) 
+50^done,register-values=[{number="0",value="1073812480"},{number="1",value="536936384"},{number="2",value="57344"},{number="3",value="0"},{number="4",value="536909332"},{number="5",value="536872920"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="16"},{number="13",value="0x2000fff8"},{number="14",value="32768"},{number="15",value="0x80025d2 <main+14>"},{number="25",value="1627389952"},{number="91",value="0x2000fff8"},{number="92",value="0x20000758 <Idle_Stack+500>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+51^done,depth="1"
+(gdb) 
+52^done,stack=[frame={level="0",addr="0x080025d2",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="92",arch="armv7"}]
+(gdb) 
+53^done,frame={level="0",addr="0x080025d2",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="92",arch="armv7"}
+(gdb) 
+54^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025d6",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="93",arch="armv7"},thread-id="1",stopped-threads="all"
+55^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+56^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025d6",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="93",arch="armv7"},state="stopped"}]
+(gdb) 
+57^done,register-values=[{number="0",value="0"},{number="1",value="0"},{number="2",value="1073752064"},{number="3",value="0"},{number="4",value="536909332"},{number="5",value="536872920"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="0"},{number="13",value="0x2000fff8"},{number="14",value="134235615"},{number="15",value="0x80025d6 <main+18>"},{number="25",value="1090519040"},{number="91",value="0x2000fff8"},{number="92",value="0x20000758 <Idle_Stack+500>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+58^done,depth="1"
+(gdb) 
+59^done,stack=[frame={level="0",addr="0x080025d6",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="93",arch="armv7"}]
+(gdb) 
+60^done,frame={level="0",addr="0x080025d6",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="93",arch="armv7"}
+(gdb) 
+61^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025da",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="94",arch="armv7"},thread-id="1",stopped-threads="all"
+62^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+63^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025da",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="94",arch="armv7"},state="stopped"}]
+(gdb) 
+64^done,register-values=[{number="0",value="0"},{number="1",value="1073762304"},{number="2",value="1073762304"},{number="3",value="0"},{number="4",value="536909332"},{number="5",value="536872920"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="-16"},{number="13",value="0x2000fff8"},{number="14",value="134230743"},{number="15",value="0x80025da <main+22>"},{number="25",value="553648128"},{number="91",value="0x2000fff8"},{number="92",value="0x20000758 <Idle_Stack+500>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+65^done,depth="1"
+(gdb) 
+66^done,stack=[frame={level="0",addr="0x080025da",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="94",arch="armv7"}]
+(gdb) 
+67^done,frame={level="0",addr="0x080025da",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="94",arch="armv7"}
+(gdb) 
+68^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x080025de",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="97",arch="armv7"},thread-id="1",stopped-threads="all"
+69^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+70^done,threads=[{id="1",target-id="Remote target",frame={level="0",addr="0x080025de",func="main",args=[],file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="97",arch="armv7"},state="stopped"}]
+(gdb) 
+71^done,register-values=[{number="0",value="0"},{number="1",value="1073762304"},{number="2",value="43690"},{number="3",value="0"},{number="4",value="536909332"},{number="5",value="536872920"},{number="6",value="32"},{number="7",value="20"},{number="8",value="-1515870811"},{number="9",value="-1515870811"},{number="10",value="-1515870811"},{number="11",value="-1515870811"},{number="12",value="-16"},{number="13",value="0x2000fff8"},{number="14",value="134237769"},{number="15",value="0x80025de <main+26>"},{number="25",value="1090519040"},{number="91",value="0x2000fff8"},{number="92",value="0x20000758 <Idle_Stack+500>"},{number="93",value="0"},{number="94",value="0"},{number="95",value="0"},{number="96",value="0"}]
+(gdb) 
+72^done,depth="1"
+(gdb) 
+73^done,stack=[frame={level="0",addr="0x080025de",func="main",file="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",fullname="/home/cyl/workspace/MCU_Sample_milkefile/projects/Micrium-uC-Eval-STM32F107/hal/core/Src/main.c",line="97",arch="armv7"}]
+(gdb) 
+74^done
+(gdb) 
+=thread-exited,id="1",group-id="i1"
+=thread-group-exited,id="i1"
+75^done
+(gdb) 
+^exit

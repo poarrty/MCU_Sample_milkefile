@@ -190,6 +190,11 @@ CPU = -mcpu=cortex-m3
 
 # float-abi
 
+# # fpu
+# FPU = -mfpu=fpv4-sp-d16
+
+# # float-abi
+# FLOAT-ABI = -mfloat-abi=hard
 
 # mcu
 MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
@@ -280,6 +285,8 @@ LIBS = -lc -lm -lstdc++ -lc_nano -lnosys  #-limagequality -lfundamental -lopenbl
 LIBDIR = 
 LDFLAGS = $(MCU) -std=gnu99 -specs=nano.specs -specs=nosys.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections #-specs=nosys.specs 
 
+# printf float
+LDFLAGS += -lc -lrdimon -u _printf_float
 
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
@@ -364,7 +371,7 @@ download: all
 	echo "loadfile $(BUILD_DIR)/$(TARGET).bin" >> flash.jlink
 	echo "r" >> flash.jlink
 	echo "exit" >> flash.jlink
-	JLinkExe -device STM32F107VC  -si SWD -speed 4000 -CommanderScript ./flash.jlink
+	JLinkExe -device STM32F103RC  -si SWD -speed 4000 -CommanderScript ./flash.jlink
 
 #images:all
 #	rm -rf $(BUILD_DIR)/*.o

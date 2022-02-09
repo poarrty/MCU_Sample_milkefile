@@ -1,0 +1,14 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "main.h": "c",
+        "task.h": "c"
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "gnuGlobal.globalExecutable": "/usr/bin/global",
+    "gnuGlobal.gtagsExecutable": "/usr/bin/gtags",
+    "editor.formatOnSave": true,
+    "clang-format.style": "Google",
+    "clang-format.fallbackStyle": "Google",
+}

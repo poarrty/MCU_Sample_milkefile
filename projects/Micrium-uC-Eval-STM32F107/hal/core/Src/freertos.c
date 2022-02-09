@@ -19,9 +19,10 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "FreeRTOS.h"
-#include "task.h"
-#include "main.h"
+
 #include "cmsis_os.h"
+#include "main.h"
+#include "task.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -51,23 +52,23 @@ extern IWDG_HandleTypeDef hiwdg;
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+    .name = "defaultTask",
+    .stack_size = 128 * 4,
+    .priority = (osPriority_t)osPriorityNormal,
 };
 /* Definitions for task_shell */
 osThreadId_t task_shellHandle;
 const osThreadAttr_t task_shell_attributes = {
-  .name = "task_shell",
-  .stack_size = 256 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+    .name = "task_shell",
+    .stack_size = 256 * 4,
+    .priority = (osPriority_t)osPriorityLow,
 };
 /* Definitions for easylog_thread */
 osThreadId_t easylog_threadHandle;
 const osThreadAttr_t easylog_thread_attributes = {
-  .name = "easylog_thread",
-  .stack_size = 256 * 4,
-  .priority = (osPriority_t) osPriorityBelowNormal,
+    .name = "easylog_thread",
+    .stack_size = 256 * 4,
+    .priority = (osPriority_t)osPriorityBelowNormal,
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -93,10 +94,10 @@ __weak unsigned long getRunTimeCounterValue(void) { return 0; }
 /* USER CODE END 1 */
 
 /**
-  * @brief  FreeRTOS initialization
-  * @param  None
-  * @retval None
-  */
+ * @brief  FreeRTOS initialization
+ * @param  None
+ * @retval None
+ */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
@@ -120,13 +121,15 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  defaultTaskHandle =
+      osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of task_shell */
   task_shellHandle = osThreadNew(task_shell_run, NULL, &task_shell_attributes);
 
   /* creation of easylog_thread */
-  easylog_threadHandle = osThreadNew(task_fal_log_run, NULL, &easylog_thread_attributes);
+  easylog_threadHandle =
+      osThreadNew(task_fal_log_run, NULL, &easylog_thread_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -135,7 +138,6 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
   /* USER CODE END RTOS_EVENTS */
-
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -145,15 +147,16 @@ void MX_FREERTOS_Init(void) {
  * @retval None
  */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void *argument)
-{
+void StartDefaultTask(void *argument) {
   /* USER CODE BEGIN StartDefaultTask */
   (void)argument;
   /* Infinite loop */
   for (;;) {
     /* feed iwdg */
     HAL_IWDG_Refresh(&hiwdg);
-    osDelay(100);
+    osDelay(1000);
+    // HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_2);
+    // HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_3);
   }
   /* USER CODE END StartDefaultTask */
 }
@@ -165,8 +168,7 @@ void StartDefaultTask(void *argument)
  * @retval None
  */
 /* USER CODE END Header_task_shell_run */
-__weak void task_shell_run(void *argument)
-{
+__weak void task_shell_run(void *argument) {
   /* USER CODE BEGIN task_shell_run */
   (void)argument;
   /* Infinite loop */
@@ -189,8 +191,7 @@ __weak void task_shell_run(void *argument)
  * @retval None
  */
 /* USER CODE END Header_task_fal_log_run */
-__weak void task_fal_log_run(void *argument)
-{
+__weak void task_fal_log_run(void *argument) {
   /* USER CODE BEGIN task_fal_log_run */
   (void)argument;
   /* Infinite loop */
@@ -204,4 +205,3 @@ __weak void task_fal_log_run(void *argument)
 /* USER CODE BEGIN Application */
 
 /* USER CODE END Application */
-

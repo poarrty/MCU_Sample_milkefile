@@ -71,6 +71,8 @@ using namespace std;
 
 void   cpp_main(void);
 double division(int a, int b);
+template <typename T>
+void sort(T* arr,int s,int e);
 
 int test(void) {
     std::cout << "Hello, world!" << std::endl;
@@ -85,22 +87,72 @@ inline T const &Max(T const &a, T const &b) {
 }
 
 void cpp_main(void) {
-    int i = 39;
-    int j = 20;
-    cout << "Max(i, j): " << Max(i, j) << endl; 
+    // int i = 39;
+    // int j = 20;
+    // cout << "Max(i, j): " << Max(i, j) << endl; 
  
-    double f1 = 13.5; 
-    double f2 = 20.7; 
-    cout << "Max(f1, f2): " << Max(f1, f2) << endl; 
+    // double f1 = 13.5; 
+    // double f2 = 20.7; 
+    // cout << "Max(f1, f2): " << Max(f1, f2) << endl; 
  
-    string s1 = "Hello"; 
-    string s2 = "World"; 
-    cout << "Max(s1, s2): " << Max(s1, s2) << endl; 
+    // string s1 = "Hello"; 
+    // string s2 = "World"; 
+    // cout << "Max(s1, s2): " << Max(s1, s2) << endl; 
 
+    //vector<float> fvec = {0.8,0.9,0.5,0.4,-0.3};
+    vector<int> vec = {34,-56,0,-67,44,16,87,-98,54,43,32,17,56,56,88,-1,0,1,2,3,4,5,6,7,8,9,10,33,56,78,66,78,90,1099,4678,898};
+   
+ 
+   // 显示 vec 的原始大小
+   cout << "vector size = " << vec.size() << endl;
+
+   sort<int>(&vec[0],0,vec.size()-1);
+   //sort<float>(&fvec[0],0,fvec.size()-1);
+ 
+    // 使用迭代器 iterator 访问值
+    // vector<float>::iterator fv = fvec.begin();
+    // while( fv != fvec.end()) {
+    //     cout << "value of v = " << *fv << endl;
+    //     fv++;
+    // }
+
+    vector<int>::iterator v = vec.begin();
+    while( v != vec.end()) {
+        cout << "value of v = " << *v << endl;
+        v++;
+    }
 }
 
 extern "C" {
 void test_cpp(void) {
     test();
 }
+}
+
+template <typename T>
+void sort(T* arr,int s,int e){
+    T* pi = &arr[s];
+    T* pj = &arr[e];
+    T k = *pi;
+    int ki;
+    if(s<e){
+        while(pi<pj){
+            while(pi<pj && k<=*pj)
+                pj--;
+            if(pi<pj) {
+                *pi = *pj;
+                *pj = k;
+            }
+            while(pi<pj && k>=*pi)
+                pi++;
+            if(pi<pj){
+                *pj=*pi;
+                *pi=k;
+            }
+        }
+        ki = pi - &arr[s] + s;
+        
+        sort(arr,s,ki-1);
+        sort(arr,ki+1,e);
+    }
 }
